@@ -1,0 +1,198 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .shell { font-family: 'DM Sans', sans-serif; background: var(--color-background-primary); }
+
+  .hero {
+    background: linear-gradient(135deg, #0a3d2e 0%, #0f5c42 60%, #1a7a5a 100%);
+    padding: 2rem 2rem 2.25rem; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -40px; right: -40px;
+    width: 160px; height: 160px; border-radius: 50%;
+    border: 32px solid rgba(255,255,255,0.04);
+  }
+  .flag-strip { display: flex; gap: 4px; margin-bottom: 1rem; }
+  .flag-strip span { display: block; height: 4px; border-radius: 2px; }
+  .fs-blue { background: #00247D; width: 26px; }
+  .fs-black { background: #000; width: 26px; }
+  .fs-red { background: #C8102E; width: 26px; }
+  .fs-white { background: #fff; width: 12px; }
+  .hero-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.35rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: #fff; line-height: 1.3; margin-bottom: 0.3rem; }
+  .hero p { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  .form-body { padding: 1.75rem 1.5rem 2rem; }
+
+  .field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 1rem; }
+  .field label { font-size: 10px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.07em; }
+  .field label .req { color: #C8102E; margin-left: 2px; }
+
+  .field input, .field select, .field textarea {
+    font-family: 'DM Sans', sans-serif; font-size: 14px;
+    color: var(--color-text-primary); background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-secondary); border-radius: 8px;
+    padding: 0.62rem 0.8rem; outline: none; width: 100%;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: #0f5c42; box-shadow: 0 0 0 2px rgba(15,92,66,0.12);
+  }
+  .field select {
+    appearance: none; cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 12px center; padding-right: 2rem;
+  }
+  .field textarea { min-height: 85px; resize: vertical; }
+
+  .row { display: grid; gap: 1rem; }
+  .r2 { grid-template-columns: 1fr 1fr; }
+  .r3 { grid-template-columns: 0.6fr 1fr 1fr; }
+
+  .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 0.5rem 0 1.25rem; }
+
+  .submit-row { margin-top: 1.5rem; }
+  .btn-submit {
+    width: 100%; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #0a3d2e, #0f5c42);
+    color: #fff; border: none; border-radius: 9px;
+    cursor: pointer; transition: opacity 0.2s;
+  }
+  .btn-submit:hover { opacity: 0.88; }
+</style>
+
+<div class="shell">
+  <div class="hero">
+    <div class="flag-strip">
+      <span class="fs-blue"></span><span class="fs-black"></span>
+      <span class="fs-red"></span><span class="fs-white"></span><span class="fs-blue"></span>
+    </div>
+    <div class="hero-label">Education New Zealand · Application</div>
+    <h1>Personal Information</h1>
+    <p>Fill in the details below to begin your higher studies application.</p>
+  </div>
+  <form id="myForm">
+
+  <div class="form-body">
+
+    <!-- Title + First + Last -->
+    <div class="row r3">
+      <div class="field">
+        <label>Title <span class="req">*</span></label>
+        <select>
+          <option value="">—</option>
+          <option>Mr</option>
+          <option>Ms</option>
+          <option>Mrs</option>
+          <option>Dr</option>
+          <option>Prof</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>First Name <span class="req">*</span></label>
+        <input id="firstName" type="text" placeholder="Given name">
+      </div>
+      <div class="field">
+        <label>Last Name <span class="req">*</span></label>
+        <input id="lastName" type="text" placeholder="Surname">
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Gender + DOB -->
+    <div class="row r2">
+      <div class="field">
+        <label>Gender <span class="req">*</span></label>
+        <select>
+          <option value="">Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Non-binary / Gender diverse</option>
+          <option>Prefer not to say</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Date of Birth <span class="req">*</span></label>
+        <input id="dob" type="date">
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Mobile + Email -->
+    <div class="row r2">
+      <div class="field">
+        <label>Mobile No. <span class="req">*</span></label>
+        <input id="mobile" type="tel" placeholder="+91 98765 43210">
+      </div>
+      <div class="field">
+        <label>Email ID <span class="req">*</span></label>
+        <input id="email" type="email" placeholder="your@email.com">
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Nationality -->
+    <div class="field">
+      <label>Nationality <span class="req">*</span></label>
+      <select>
+        <option value="">Select country</option>
+        <option>India</option>
+        <option>China</option>
+        <option>Philippines</option>
+        <option>South Korea</option>
+        <option>Japan</option>
+        <option>USA</option>
+        <option>UK</option>
+        <option>Australia</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <!-- Residential Address -->
+    <div class="field">
+      <label>Residential Address <span class="req">*</span></label>
+      <textarea id="address" placeholder="Street, City, State / Province, Country, Postcode"></textarea>
+    </div>
+
+    <div class="submit-row">
+      <button class="btn-submit" onclick="sendPrompt('I have filled in my personal information for the New Zealand higher studies application. What should I do next?')">Submit →</button>
+    </div>
+  
+
+  </div>
+  </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $('#myForm').on('submit', function(e) {
+    e.preventDefault();
+    var formData = {
+      title:       $('#title').val(),
+      firstName:   $('#firstName').val(),
+      lastName:    $('#lastName').val(),
+      gender:      $('#gender').val(),
+      dob:         $('#dob').val(),
+      mobile:      $('#mobile').val(),
+      email:       $('#email').val(),
+      nationality: $('#nationality').val(),
+      address:     $('#address').val()
+    };
+    $.ajax({
+      url: 'https://script.google.com/macros/s/AKfycbzWC_p0f3fl1uxS4pY-LbUYFhpjnTWX_vinY_m3Sc6pYnnE0bq6JBKKOVnG2d1k7Qsq/exec',
+      type: 'POST',
+      data: formData,
+      success: function(response) {
+        alert('Form submitted successfully!');
+        $('#myForm')[0].reset();
+      },
+      error: function() {
+        alert('There was an error submitting the form.');
+      }
+    });
+  });
+</script>

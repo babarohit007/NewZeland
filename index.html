@@ -4,540 +4,445 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Study in New Zealand — Higher Education Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --black: #0a0c0b;
-  --white: #f4f0e8;
-  --green: #1e5c3a;
-  --green-light: #2d8a56;
-  --green-mist: #e8f5ee;
-  --gold: #c8963c;
-  --gold-light: #e8b86d;
-  --teal: #1a7a6e;
-  --cream: #faf7f0;
-  --grey: #6b7280;
-  --border: rgba(30,92,58,0.15);
+  --black: #111111;
+  --white: #ffffff;
+  --green: #00573F;
+  --green-light: #007a58;
+  --green-mist: #e6f2ee;
+  --cream: #f5f5f0;
+  --grey: #555555;
+  --border: #e0e0d8;
 }
-
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: "Inter", sans-serif; background: #ffffff; color: #111111; overflow-x: hidden; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f5f5f0; }
+::-webkit-scrollbar-thumb { background: #00573F; border-radius: 3px; }
 
-body {
-  font-family: 'Outfit', sans-serif;
-  background: var(--cream);
-  color: var(--black);
-  overflow-x: hidden;
-}
-
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--cream); }
-::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
-
-/* ── NAV ── */
+/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 999;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 5%;
-  background: rgba(250,247,240,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  padding: 0 5%; height: 64px;
+  background: #111111;
   transition: box-shadow 0.3s;
 }
-nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
 .nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem; font-weight: 700;
-  color: var(--green); text-decoration: none;
-  display: flex; align-items: center; gap: 0.5rem;
+  font-family: "Inter", sans-serif; font-size: 1.1rem; font-weight: 800;
+  letter-spacing: -0.02em; color: #ffffff; text-decoration: none;
+  display: flex; align-items: center; gap: 0.4rem;
 }
-.nav-logo span { color: var(--gold); }
-.nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+.nav-logo span { color: #4cd69a; }
+.nav-links { display: flex; gap: 0; list-style: none; align-items: center; height: 64px; }
 .nav-links a {
-  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--black);
-  text-decoration: none; opacity: 0.7;
-  transition: opacity 0.2s, color 0.2s; position: relative;
+  font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.72);
+  text-decoration: none; height: 64px; display: flex; align-items: center;
+  padding: 0 1rem; position: relative; transition: color 0.2s;
 }
 .nav-links a::after {
-  content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
-  height: 1.5px; background: var(--gold);
-  transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  content: ""; position: absolute; bottom: 0; left: 0.5rem; right: 0.5rem;
+  height: 2px; background: #4cd69a; transform: scaleX(0); transform-origin: left; transition: transform 0.25s;
 }
-.nav-links a:hover { opacity: 1; color: var(--green); }
+.nav-links a:hover { color: #ffffff; }
 .nav-links a:hover::after { transform: scaleX(1); }
 .nav-cta {
-  background: var(--green); color: var(--white) !important;
-  padding: 0.55rem 1.4rem; border-radius: 50px;
-  opacity: 1 !important; transition: background 0.3s, transform 0.2s !important;
+  background: #00573F !important; color: #ffffff !important;
+  padding: 0.5rem 1.4rem !important; border-radius: 50px !important;
+  height: auto !important; margin-left: 0.75rem;
+  font-weight: 600 !important; font-size: 0.78rem !important;
+  transition: background 0.2s !important;
 }
-.nav-cta:hover { background: var(--green-light) !important; transform: translateY(-1px); }
+.nav-cta:hover { background: #007a58 !important; }
 .nav-cta::after { display: none !important; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-.hamburger span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; transition: all 0.3s; }
-
+.hamburger span { display: block; width: 22px; height: 2px; background: #ffffff; border-radius: 2px; transition: all 0.3s; }
 .mobile-menu {
   display: none; position: fixed; inset: 0; z-index: 998;
-  background: var(--cream); flex-direction: column;
+  background: #111111; flex-direction: column;
   align-items: center; justify-content: center; gap: 2rem;
 }
 .mobile-menu.open { display: flex; }
-.mobile-menu a { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--black); text-decoration: none; transition: color 0.2s; }
-.mobile-menu a:hover { color: var(--green); }
+.mobile-menu a { font-family: "Inter", sans-serif; font-size: 1.6rem; font-weight: 700; color: #ffffff; text-decoration: none; transition: color 0.2s; }
+.mobile-menu a:hover { color: #4cd69a; }
 
-/* ── HERO ── */
-.hero {
-  min-height: 100vh; position: relative;
-  display: flex; align-items: center;
-  background: var(--black); overflow: hidden;
-}
-.hero-bg {
+/* HERO */
+.hero { min-height: 100vh; position: relative; overflow: hidden; }
+.hero-bg { display: none; }
+.hero-grid { display: none; }
+
+/* SLIDER */
+.hero-slider { position: absolute; inset: 0; z-index: 0; }
+.hero-slide {
   position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 70% at 70% 40%, rgba(30,92,58,0.35) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 50% at 20% 70%, rgba(26,122,110,0.2) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(200,150,60,0.08) 0%, transparent 60%);
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1.1s ease;
+  display: flex; align-items: flex-end;
 }
-.hero-grid {
-  position: absolute; inset: 0; opacity: 0.04;
-  background-image: linear-gradient(var(--white) 1px, transparent 1px), linear-gradient(90deg, var(--white) 1px, transparent 1px);
-  background-size: 60px 60px;
+.hero-slide.active { opacity: 1; }
+.hero-slide::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(0,20,12,0.92) 0%, rgba(0,20,12,0.65) 45%, rgba(0,20,12,0.18) 100%);
+  z-index: 0;
 }
+
+/* Per-slide content */
+.slide-content {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 1200px; margin: 0 auto;
+  padding: 0 5% 6.5rem; padding-top: 64px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: flex-end;
+}
+.slide-left { animation: none; }
+.slide-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: #4cd69a; margin-bottom: 1.2rem;
+}
+.slide-eyebrow::before { content: ""; width: 24px; height: 2px; background: #4cd69a; border-radius: 2px; }
+.slide-title {
+  font-family: "Inter", sans-serif; font-size: clamp(2.6rem, 4.8vw, 4.8rem);
+  font-weight: 800; line-height: 1.05; color: #ffffff;
+  margin-bottom: 1.2rem; letter-spacing: -0.03em;
+}
+.slide-title em { font-style: normal; color: #4cd69a; }
+.slide-desc { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.72); font-weight: 400; max-width: 520px; margin-bottom: 2rem; }
+.slide-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.slide-right { display: flex; flex-direction: column; gap: 1rem; padding-bottom: 0.5rem; }
+.slide-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+.slide-stat {
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 12px; padding: 1.4rem 1.2rem;
+  backdrop-filter: blur(8px); transition: border-color 0.3s;
+}
+.slide-stat:hover { border-color: rgba(76,214,154,0.45); }
+.slide-stat.wide { grid-column: 1 / -1; background: rgba(0,87,63,0.35); border-color: rgba(76,214,154,0.28); }
+.slide-stat-num { font-family: "Inter", sans-serif; font-size: 2.4rem; font-weight: 800; color: #4cd69a; display: block; line-height: 1; margin-bottom: 0.35rem; letter-spacing: -0.03em; }
+.slide-stat.wide .slide-stat-num { font-size: 3rem; }
+.slide-stat-label { font-size: 0.76rem; color: rgba(255,255,255,0.6); font-weight: 400; line-height: 1.4; }
+
+/* Slide nav arrows */
+.slider-arrow {
+  position: absolute; top: 50%; z-index: 10;
+  transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.22);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background 0.2s, border-color 0.2s;
+  backdrop-filter: blur(4px);
+}
+.slider-arrow:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.45); }
+.slider-arrow svg { width: 18px; height: 18px; stroke: #ffffff; fill: none; stroke-width: 2.5; }
+.slider-prev { left: 1.5%; }
+.slider-next { right: 1.5%; }
+
+/* Slide dots */
+.slider-dots {
+  position: absolute; bottom: 2.8rem; left: 50%; transform: translateX(-50%);
+  z-index: 10; display: flex; gap: 10px; align-items: center;
+}
+.slider-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.3); border: none; cursor: pointer;
+  transition: background 0.3s, transform 0.3s, width 0.3s; padding: 0;
+}
+.slider-dot.active { background: #4cd69a; transform: scale(1.25); width: 24px; border-radius: 4px; }
+
+/* Progress bar */
+.slider-progress {
+  position: absolute; bottom: 0; left: 0; height: 3px;
+  background: #4cd69a; z-index: 10;
+  transition: none;
+}
+.slider-progress.animating { transition: width 5s linear; }
 .hero-content {
   position: relative; z-index: 2;
-  padding: 0 5%; padding-top: 6rem;
+  padding: 0 5% 6rem; padding-top: 64px;
   max-width: 1200px; margin: 0 auto; width: 100%;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: flex-end;
 }
-.hero-left { animation: fadeUp 1s ease both; }
+.hero-left { animation: fadeUp 0.9s ease both; }
 .hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  font-size: 1rem; font-weight: 600; letter-spacing: 0.25em;
-  text-transform: uppercase; color: var(--gold);
-  margin-bottom: 1.8rem;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: #4cd69a; margin-bottom: 1.2rem;
 }
-.hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+.hero-eyebrow::before { content: ""; width: 24px; height: 2px; background: #4cd69a; border-radius: 2px; }
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 5.5vw, 5.5rem);
-  font-weight: 900; line-height: 1.0;
-  color: var(--white); margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
+  font-family: "Inter", sans-serif; font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 800; line-height: 1.05; color: #ffffff;
+  margin-bottom: 1.4rem; letter-spacing: -0.03em;
 }
-.hero h1 em { font-style: italic; color: var(--gold-light); }
-.hero-desc {
-  font-size: 1.05rem; line-height: 1.8; color: rgba(244,240,232,0.65);
-  font-weight: 300; max-width: 480px; margin-bottom: 2.5rem;
-}
+.hero h1 em { font-style: normal; color: #4cd69a; }
+.hero-desc { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.72); font-weight: 400; max-width: 500px; margin-bottom: 2.2rem; }
 .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn-gold {
-  padding: 0.9rem 2rem; background: var(--gold); color: var(--black);
-  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; text-decoration: none; border-radius: 4px;
-  transition: background 0.3s, transform 0.2s; display: inline-block;
+  padding: 0.85rem 2rem; background: #00573F; color: #ffffff;
+  font-size: 0.82rem; font-weight: 700; text-decoration: none; border-radius: 50px;
+  border: 2px solid #00573F; transition: background 0.2s, transform 0.2s; display: inline-block;
 }
-.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+.btn-gold:hover { background: #007a58; border-color: #007a58; transform: translateY(-2px); }
 .btn-ghost {
-  padding: 0.9rem 2rem; border: 1px solid rgba(244,240,232,0.3);
-  color: var(--white); font-size: 0.82rem; font-weight: 500;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  text-decoration: none; border-radius: 4px;
-  transition: border-color 0.3s, color 0.3s, transform 0.2s; display: inline-block;
+  padding: 0.85rem 2rem; border: 2px solid rgba(255,255,255,0.5);
+  color: #ffffff; font-size: 0.82rem; font-weight: 600;
+  text-decoration: none; border-radius: 50px;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s; display: inline-block;
 }
-.btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-
-.hero-right { animation: fadeUp 1s 0.2s ease both; }
+.btn-ghost:hover { border-color: #ffffff; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+.hero-right { animation: fadeUp 0.9s 0.15s ease both; }
 .hero-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .hero-stat-card {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px; padding: 1.8rem 1.5rem;
-  transition: border-color 0.3s, transform 0.3s;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px; padding: 1.6rem 1.4rem;
+  transition: border-color 0.3s, transform 0.3s; backdrop-filter: blur(8px);
 }
-.hero-stat-card:hover { border-color: rgba(200,150,60,0.4); transform: translateY(-4px); }
-.hero-stat-card:first-child { grid-column: 1 / -1; background: rgba(30,92,58,0.3); border-color: rgba(30,92,58,0.5); }
-.stat-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--gold-light); display: block; line-height: 1; margin-bottom: 0.4rem; }
-.stat-label { font-size: 0.8rem; color: rgba(244,240,232,0.6); font-weight: 400; line-height: 1.4; }
-.hero-stat-card:first-child .stat-num { font-size: 3.5rem; }
+.hero-stat-card:hover { border-color: rgba(76,214,154,0.5); transform: translateY(-4px); }
+.hero-stat-card:first-child { grid-column: 1 / -1; background: rgba(0,87,63,0.4); border-color: rgba(76,214,154,0.3); }
+.stat-num { font-family: "Inter", sans-serif; font-size: 2.6rem; font-weight: 800; color: #4cd69a; display: block; line-height: 1; margin-bottom: 0.4rem; letter-spacing: -0.03em; }
+.stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.6); font-weight: 400; line-height: 1.4; }
+.hero-stat-card:first-child .stat-num { font-size: 3.2rem; }
 .hero-scroll {
-  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
   z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: rgba(244,240,232,0.4); animation: bounce 2s infinite;
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); animation: bounce 2s infinite;
 }
-.scroll-arrow { width: 20px; height: 20px; border-right: 1px solid rgba(244,240,232,0.3); border-bottom: 1px solid rgba(244,240,232,0.3); transform: rotate(45deg); }
+.scroll-arrow { width: 18px; height: 18px; border-right: 1.5px solid rgba(255,255,255,0.3); border-bottom: 1.5px solid rgba(255,255,255,0.3); transform: rotate(45deg); }
 @keyframes bounce { 0%,100%{ transform: translateX(-50%) translateY(0); } 50%{ transform: translateX(-50%) translateY(6px); } }
 
-/* ── SHARED ── */
-.section-header { text-align: center; margin-bottom: 4rem; }
-.tag {
-  display: inline-block; font-size: 0.68rem; font-weight: 600;
-  letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold);
-  margin-bottom: 1rem;
-}
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
-  line-height: 1.15; color: var(--black);
-}
-.section-title em { font-style: italic; color: var(--green); }
-.section-title.light { color: var(--white); }
-.section-title.light em { color: var(--gold-light); }
-.section-sub {
-  font-size: 1rem; color: var(--grey); font-weight: 300;
-  line-height: 1.8; max-width: 560px; margin: 1rem auto 0;
-}
-.section-sub.light { color: rgba(244,240,232,0.6); }
-
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+/* SHARED */
+.section-header { text-align: center; margin-bottom: 3.5rem; }
+.tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #00573F; margin-bottom: 0.8rem; }
+.section-title { font-family: "Inter", sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.1; color: #111111; letter-spacing: -0.02em; }
+.section-title em { font-style: normal; color: #00573F; }
+.section-title.light { color: #111111; }
+.section-title.light em { color: #00573F; }
+.section-sub { font-size: 1rem; color: #555555; font-weight: 400; line-height: 1.75; max-width: 580px; margin: 1rem auto 0; }
+.section-sub.light { color: #555555; }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ── WHY NZ ── */
-.why-nz { padding: 7rem 5%; background: var(--cream); }
+/* WHATSAPP */
+#whatsapp-float {
+  position: fixed; bottom: 28px; right: 28px; width: 56px; height: 56px;
+  background: #25D366; border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; text-decoration: none;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.4); transition: transform 0.2s, box-shadow 0.2s; z-index: 9999;
+}
+#whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 22px rgba(37,211,102,0.5); }
+#whatsapp-float:active { transform: scale(0.96); }
+
+/* WHY NZ */
+.why-nz { padding: 6rem 5%; background: #ffffff; }
 .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
 .why-card {
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 16px; padding: 2.5rem 2rem;
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  background: #ffffff; border: 1.5px solid #e0e0d8;
+  border-radius: 16px; padding: 2.2rem 2rem;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
   position: relative; overflow: hidden;
 }
 .why-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, var(--green), var(--teal));
-  transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: #00573F; transform: scaleX(0); transform-origin: left; transition: transform 0.35s; border-radius: 4px 4px 0 0;
 }
-.why-card:hover { border-color: rgba(30,92,58,0.3); box-shadow: 0 12px 40px rgba(30,92,58,0.1); transform: translateY(-5px); }
+.why-card:hover { border-color: #00573F; box-shadow: 0 8px 32px rgba(0,87,63,0.12); transform: translateY(-4px); }
 .why-card:hover::before { transform: scaleX(1); }
-.why-icon {
-  width: 52px; height: 52px; border-radius: 12px;
-  background: var(--green-mist); display: flex; align-items: center;
-  justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem;
-}
-.why-card h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--black); }
-.why-card p { font-size: 0.9rem; line-height: 1.75; color: var(--grey); font-weight: 300; }
+.why-icon { width: 48px; height: 48px; border-radius: 12px; background: #e6f2ee; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.2rem; }
+.why-card h3 { font-family: "Inter", sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.7rem; color: #111111; }
+.why-card p { font-size: 0.9rem; line-height: 1.7; color: #555555; }
 
-/* ── UNIVERSITIES ── */
-.universities { padding: 7rem 5%; background: var(--black); }
+/* UNIVERSITIES */
+.universities { padding: 6rem 5%; background: #f5f5f0; }
 .uni-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; max-width: 1200px; margin: 0 auto; }
 .uni-card {
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 14px; padding: 2rem 1.5rem; text-align: center;
-  transition: border-color 0.3s, background 0.3s, transform 0.3s; cursor: pointer;
+  background: #ffffff; border: 1.5px solid #e0e0d8; border-radius: 14px;
+  padding: 1.8rem 1.4rem; text-align: center;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s; cursor: pointer;
+  text-decoration: none; display: block; color: inherit;
 }
-.uni-card:hover { border-color: rgba(200,150,60,0.5); background: rgba(30,92,58,0.15); transform: translateY(-5px); }
+.uni-card:hover { border-color: #00573F; box-shadow: 0 6px 24px rgba(0,87,63,0.1); transform: translateY(-4px); }
+.uni-card:hover .uni-name { color: #00573F; }
+.uni-visit { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.9rem; font-size: 0.68rem; font-weight: 700; color: #00573F; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0; transition: opacity 0.2s; }
+.uni-visit svg { width: 11px; height: 11px; }
+.uni-card:hover .uni-visit { opacity: 1; }
 .uni-badge {
-  display: inline-block; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--gold); background: rgba(200,150,60,0.12);
-  border: 1px solid rgba(200,150,60,0.3); padding: 0.25rem 0.7rem; border-radius: 50px;
-  margin-bottom: 1rem;
+  display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #00573F; background: #e6f2ee;
+  border: 1px solid #b0d4c8; padding: 0.2rem 0.7rem; border-radius: 50px; margin-bottom: 0.9rem;
 }
-.uni-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; line-height: 1.3; }
-.uni-city { font-size: 0.72rem; color: rgba(244,240,232,0.4); margin-bottom: 1rem; }
-.uni-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; justify-content: center; }
-.uni-tag { font-size: 0.58rem; padding: 0.2rem 0.55rem; background: rgba(26,122,110,0.15); border: 1px solid rgba(26,122,110,0.3); border-radius: 50px; color: #7ecdc4; }
+.uni-name { font-family: "Inter", sans-serif; font-size: 0.95rem; font-weight: 700; color: #111111; margin-bottom: 0.35rem; line-height: 1.3; }
+.uni-city { font-size: 0.7rem; color: #777777; margin-bottom: 0.9rem; }
+.uni-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; justify-content: center; }
+.uni-tag { font-size: 0.6rem; padding: 0.2rem 0.55rem; background: #f0faf5; border: 1px solid #b0d4c8; border-radius: 50px; color: #00573F; font-weight: 500; }
 
-/* ── PATHWAYS ── */
-.pathways { padding: 7rem 5%; background: var(--green-mist); }
+/* POLYTECHNICS */
+.poly-section { max-width: 1200px; margin: 3rem auto 0; }
+.poly-section-title { font-family: "Inter", sans-serif; font-size: 1.5rem; font-weight: 800; color: #111111; margin-bottom: 0.4rem; text-align: center; letter-spacing: -0.02em; }
+.poly-section-title em { font-style: normal; color: #00573F; }
+.poly-section-sub { text-align: center; font-size: 0.88rem; color: #666666; margin-bottom: 1.8rem; }
+.poly-divider { border: none; border-top: 1.5px solid #e0e0d8; margin: 0 auto 2rem; }
+.poly-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+.poly-item {
+  display: flex; align-items: center; gap: 0.8rem;
+  background: #ffffff; border: 1.5px solid #e0e0d8; border-radius: 10px; padding: 0.85rem 1rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  text-decoration: none; color: inherit;
+}
+.poly-item:hover { border-color: #00573F; box-shadow: 0 3px 12px rgba(0,87,63,0.08); }
+.poly-item:hover .poly-name { color: #00573F; }
+.poly-name { font-size: 0.8rem; font-weight: 600; color: #111111; line-height: 1.3; transition: color 0.2s; }
+.poly-dot { width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; background: #00573F; }
+.poly-info { min-width: 0; }
+.poly-loc { font-size: 0.66rem; color: #888888; margin-top: 0.1rem; }
+.poly-tag {
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #00573F; background: #e6f2ee; border: 1px solid #b0d4c8;
+  padding: 0.15rem 0.5rem; border-radius: 50px; white-space: nowrap; margin-left: auto; flex-shrink: 0;
+}
+
+/* PATHWAYS */
+.pathways { padding: 6rem 5%; background: #e6f2ee; }
 .pathways-inner { max-width: 1200px; margin: 0 auto; }
-.pathway-list { display: flex; flex-direction: column; gap: 0; margin-top: 3rem; }
+.pathway-list { display: flex; flex-direction: column; gap: 0; margin-top: 2.5rem; }
 .pathway-item {
-  display: grid; grid-template-columns: 80px 1fr auto;
-  align-items: center; gap: 2.5rem;
-  padding: 2rem 2rem; border-bottom: 1px solid var(--border);
-  transition: background 0.2s, padding-left 0.3s; cursor: pointer; border-radius: 8px;
+  display: grid; grid-template-columns: 72px 1fr auto; align-items: center; gap: 2rem;
+  padding: 1.8rem; border-bottom: 1.5px solid rgba(0,87,63,0.12);
+  transition: background 0.2s, padding-left 0.25s; cursor: pointer; border-radius: 10px;
 }
-.pathway-item:hover { background: rgba(30,92,58,0.06); padding-left: 2.5rem; }
-.pathway-num {
-  font-family: 'Playfair Display', serif; font-size: 3rem;
-  font-weight: 900; color: rgba(30,92,58,0.15); line-height: 1;
-  transition: color 0.3s;
-}
-.pathway-item:hover .pathway-num { color: rgba(30,92,58,0.3); }
-.pathway-info h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--black); margin-bottom: 0.4rem; }
-.pathway-info p { font-size: 0.88rem; color: var(--grey); line-height: 1.6; font-weight: 300; }
+.pathway-item:hover { background: rgba(0,87,63,0.05); padding-left: 2.2rem; }
+.pathway-num { font-family: "Inter", sans-serif; font-size: 2.8rem; font-weight: 900; color: rgba(0,87,63,0.15); line-height: 1; transition: color 0.3s; }
+.pathway-item:hover .pathway-num { color: rgba(0,87,63,0.3); }
+.pathway-info h3 { font-family: "Inter", sans-serif; font-size: 1.15rem; font-weight: 700; color: #111111; margin-bottom: 0.35rem; letter-spacing: -0.01em; }
+.pathway-info p { font-size: 0.88rem; color: #444444; line-height: 1.65; }
 .pathway-duration {
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--green); border: 1px solid rgba(30,92,58,0.3);
-  padding: 0.4rem 1.1rem; border-radius: 50px; white-space: nowrap;
-  background: rgba(30,92,58,0.06);
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #00573F; border: 1.5px solid rgba(0,87,63,0.3);
+  padding: 0.4rem 1rem; border-radius: 50px; white-space: nowrap; background: rgba(0,87,63,0.06);
 }
 
-/* ── SERVICES ── */
-.services { padding: 7rem 5%; background: var(--black); position: relative; overflow: hidden; }
-.services::before {
-  content: ''; position: absolute; top: -200px; right: -200px;
-  width: 600px; height: 600px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(30,92,58,0.2) 0%, transparent 70%);
-  pointer-events: none;
-}
+/* SERVICES */
+.services { padding: 6rem 5%; background: #f5f5f0; position: relative; overflow: hidden; }
+.services::before { display: none; }
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
 .service-card {
-  border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;
-  padding: 2.5rem 2rem; position: relative; overflow: hidden;
-  transition: border-color 0.3s, transform 0.3s;
+  background: #ffffff; border: 1.5px solid #e0e0d8; border-radius: 16px;
+  padding: 2.2rem 2rem; position: relative; overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
 }
-.service-card:hover { border-color: rgba(200,150,60,0.4); transform: translateY(-5px); }
-.service-card.featured {
-  background: linear-gradient(135deg, rgba(30,92,58,0.5), rgba(26,122,110,0.3));
-  border-color: rgba(30,92,58,0.6);
-}
-.service-num {
-  font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900;
-  color: rgba(255,255,255,0.05); position: absolute; top: 1rem; right: 1.5rem;
-  line-height: 1; pointer-events: none;
-}
-.service-icon { font-size: 2rem; margin-bottom: 1.2rem; }
-.service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 0.8rem; }
-.service-card p { font-size: 0.88rem; line-height: 1.75; color: rgba(244,240,232,0.55); font-weight: 300; }
-.service-link {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  margin-top: 1.5rem; font-size: 0.78rem; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--gold); text-decoration: none;
-  transition: gap 0.3s, color 0.3s;
-}
-.service-link:hover { gap: 0.9rem; color: var(--gold-light); }
+.service-card:hover { border-color: #00573F; box-shadow: 0 8px 28px rgba(0,87,63,0.1); transform: translateY(-4px); }
+.service-card.featured { background: #00573F; border-color: #00573F; }
+.service-num { font-family: "Inter", sans-serif; font-size: 4rem; font-weight: 900; color: rgba(0,0,0,0.04); position: absolute; top: 1rem; right: 1.4rem; line-height: 1; pointer-events: none; }
+.service-icon { font-size: 2rem; margin-bottom: 1.1rem; }
+.service-card h3 { font-family: "Inter", sans-serif; font-size: 1.05rem; font-weight: 700; color: #111111; margin-bottom: 0.65rem; }
+.service-card p { font-size: 0.88rem; line-height: 1.7; color: #555555; }
+.service-card.featured h3 { color: #ffffff; }
+.service-card.featured p { color: rgba(255,255,255,0.72); }
+.service-card.featured .service-num { color: rgba(255,255,255,0.07); }
+.service-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.4rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em; color: #00573F; text-decoration: none; transition: gap 0.2s; }
+.service-link:hover { gap: 0.7rem; }
+.service-card.featured .service-link { color: #4cd69a; }
+.service-card.featured .service-link:hover { color: #ffffff; }
 
-/* ── FAQ ── */
-.faq { padding: 7rem 5%; background: var(--cream); }
-.faq-inner { max-width: 800px; margin: 0 auto; }
-.faq-list { margin-top: 3rem; }
-.faq-item { border-bottom: 1px solid var(--border); }
+/* FAQ */
+.faq { padding: 6rem 5%; background: #ffffff; }
+.faq-inner { max-width: 760px; margin: 0 auto; }
+.faq-list { margin-top: 2.5rem; }
+.faq-item { border-bottom: 1.5px solid #e8e8e0; }
 .faq-q {
   width: 100%; background: none; border: none; cursor: pointer;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1.6rem 0; text-align: left; gap: 1.5rem;
-  font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
-  color: var(--black); transition: color 0.3s;
+  padding: 1.4rem 0; text-align: left; gap: 1.5rem;
+  font-family: "Inter", sans-serif; font-size: 1rem; font-weight: 600;
+  color: #111111; transition: color 0.25s;
 }
-.faq-q:hover { color: var(--green); }
+.faq-q:hover { color: #00573F; }
 .faq-toggle {
-  width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%;
-  background: var(--green-mist); border: 1px solid var(--border);
+  width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%;
+  background: #e6f2ee; border: 1.5px solid #b0d4c8;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; color: var(--green); transition: all 0.35s; line-height: 1;
+  font-size: 1.1rem; color: #00573F; transition: all 0.3s; line-height: 1;
 }
-.faq-item.open .faq-toggle { background: var(--green); color: var(--white); transform: rotate(45deg); }
-.faq-a {
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.45s ease, padding 0.3s;
-  font-size: 0.92rem; line-height: 1.85; color: var(--grey); font-weight: 300;
-}
-.faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.5rem; }
+.faq-item.open .faq-toggle { background: #00573F; color: #ffffff; transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; font-size: 0.92rem; line-height: 1.8; color: #555555; }
+.faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.4rem; }
 
-/* ── CONTACT SECTION ── */
-.contact-section {
-  padding: 7rem 5%;
-  background: linear-gradient(135deg, #0a1f15 0%, #0d2e1e 50%, #0a1f15 100%);
-  position: relative; overflow: hidden;
-}
-.contact-section::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 30% 50%, rgba(30,92,58,0.25), transparent),
-              radial-gradient(ellipse 50% 70% at 80% 30%, rgba(26,122,110,0.15), transparent);
-  pointer-events: none;
-}
-.contact-section::after {
-  content: ''; position: absolute; inset: 0; opacity: 0.03;
-  background-image: linear-gradient(rgba(244,240,232,1) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(244,240,232,1) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
-}
-
-.contact-inner {
-  max-width: 1100px; margin: 0 auto; position: relative; z-index: 1;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
-}
-
-/* Left col */
+/* CONTACT */
+.contact-section { padding: 6rem 5%; background: #e6f2ee; position: relative; overflow: hidden; }
+.contact-section::before { display: none; }
+.contact-section::after { display: none; }
+.contact-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
 .contact-left { padding-top: 0.5rem; }
-.contact-left .tag { color: var(--gold); }
-.contact-left h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900;
-  color: var(--white); line-height: 1.15; margin-bottom: 1.2rem;
-}
-.contact-left h2 em { font-style: italic; color: var(--gold-light); }
-.contact-left p {
-  font-size: 0.95rem; color: rgba(244,240,232,0.6);
-  line-height: 1.8; font-weight: 300; margin-bottom: 2.5rem;
-}
-
-.contact-perks { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
-.perk {
-  display: flex; align-items: flex-start; gap: 0.9rem;
-}
-.perk-icon {
-  width: 36px; height: 36px; flex-shrink: 0; border-radius: 8px;
-  background: rgba(30,92,58,0.4); border: 1px solid rgba(30,92,58,0.6);
-  display: flex; align-items: center; justify-content: center; font-size: 1rem;
-}
-.perk-text strong {
-  display: block; font-size: 0.88rem; font-weight: 500;
-  color: var(--white); margin-bottom: 0.15rem;
-}
-.perk-text span { font-size: 0.78rem; color: rgba(244,240,232,0.45); line-height: 1.5; }
-
-.contact-quote {
-  border-left: 2px solid var(--gold);
-  padding: 1rem 1.5rem;
-  background: rgba(200,150,60,0.06);
-  border-radius: 0 8px 8px 0;
-}
-.contact-quote p {
-  font-family: 'Playfair Display', serif;
-  font-style: italic; font-size: 1rem;
-  color: rgba(244,240,232,0.75); margin: 0;
-  line-height: 1.6;
-}
-.contact-quote cite {
-  display: block; margin-top: 0.5rem;
-  font-size: 0.72rem; color: var(--gold); font-style: normal;
-  letter-spacing: 0.08em; text-transform: uppercase;
-}
-
-/* Right col — form card */
-.form-card {
-  background:  rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 20px; overflow: hidden;
-  backdrop-filter: blur(10px);
-}
-
-.form-card-header {
-  background: linear-gradient(135deg, #0a3d2e, #0f5c42);
-  padding: 1.5rem 2rem;
-  position: relative; overflow: hidden;
-}
-.form-card-header::before {
-  content: ''; position: absolute; top: -30px; right: -30px;
-  width: 120px; height: 120px; border-radius: 50%;
-  border: 25px solid rgba(255,255,255,0.04);
-}
-.flag-strip { display: flex; gap: 4px; margin-bottom: 0.75rem; }
+.contact-left .tag { color: #00573F; }
+.contact-left h2 { font-family: "Inter", sans-serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; color: #111111; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.02em; }
+.contact-left h2 em { font-style: normal; color: #00573F; }
+.contact-left p { font-size: 0.95rem; color: #444444; line-height: 1.75; margin-bottom: 2rem; }
+.contact-perks { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 2rem; }
+.perk { display: flex; align-items: flex-start; gap: 0.85rem; }
+.perk-icon { width: 36px; height: 36px; flex-shrink: 0; border-radius: 10px; background: #ffffff; border: 1.5px solid #b0d4c8; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+.perk-text strong { display: block; font-size: 0.88rem; font-weight: 600; color: #111111; margin-bottom: 0.1rem; }
+.perk-text span { font-size: 0.78rem; color: #555555; line-height: 1.5; }
+.contact-quote { border-left: 3px solid #00573F; padding: 1rem 1.4rem; background: rgba(0,87,63,0.06); border-radius: 0 10px 10px 0; }
+.contact-quote p { font-family: "Inter", sans-serif; font-style: italic; font-size: 0.95rem; color: #222222; margin: 0; line-height: 1.6; }
+.contact-quote cite { display: block; margin-top: 0.5rem; font-size: 0.7rem; color: #00573F; font-style: normal; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
+.form-card { background: #ffffff; border: 1.5px solid #e0e0d8; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 32px rgba(0,87,63,0.1); }
+.form-card-header { background: #00573F; padding: 1.5rem 2rem; position: relative; overflow: hidden; }
+.form-card-header::before { content: ""; position: absolute; top: -30px; right: -30px; width: 110px; height: 110px; border-radius: 50%; border: 22px solid rgba(255,255,255,0.07); }
+.flag-strip { display: flex; gap: 4px; margin-bottom: 0.7rem; }
 .flag-strip span { display: block; height: 3px; border-radius: 2px; }
 .fs-blue { background: #00247D; width: 22px; }
 .fs-black { background: #000; width: 22px; }
 .fs-red { background: #C8102E; width: 22px; }
 .fs-white { background: #fff; width: 10px; }
-.form-card-header .form-label {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 9px; font-weight: 500; letter-spacing: 0.14em;
-  text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 0.2rem;
-}
-.form-card-header h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem; font-weight: 600; color: #fff; margin: 0;
-}
-.form-card-header p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 0.2rem;
-}
-
-.form-body-inner {
-  padding: 1.75rem 2rem 2rem;
-  font-family: 'DM Sans', sans-serif;
-}
-
-.f-field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 0.9rem; }
-.f-field label {
-  font-size: 9px; font-weight: 500; letter-spacing: 0.07em;
-  text-transform: uppercase; color: rgba(244,240,232,0.45);
-}
-.f-field label .req { color: #C8102E; margin-left: 2px; }
-
-.f-field input,
-.f-field select,
-.f-field textarea {
-  font-family: 'DM Sans', sans-serif; font-size: 13px;
-  color: var(--white);
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px; padding: 0.55rem 0.75rem;
-  outline: none; width: 100%;
-  transition: border-color 0.2s, background 0.2s;
-}
-.f-field input::placeholder, .f-field textarea::placeholder { color: rgba(244,240,232,0.22); }
-.f-field input:focus, .f-field select:focus, .f-field textarea:focus {
-  border-color: rgba(30,92,58,0.8);
-  background: rgba(30,92,58,0.12);
-}
-.f-field select {
-  appearance: none; cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 10px center;
-  padding-right: 1.8rem;
-}
-.f-field select option { background: #0d2e1e; color: var(--white); }
+.form-card-header .form-label { font-family: "Inter", sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 0.2rem; }
+.form-card-header h3 { font-family: "Inter", sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin: 0; }
+.form-card-header p { font-family: "Inter", sans-serif; font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 0.2rem; }
+.form-body-inner { padding: 1.6rem 2rem 2rem; font-family: "Inter", sans-serif; }
+.f-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 0.9rem; }
+.f-field label { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #555555; }
+.f-field label .req { color: #cc0000; margin-left: 2px; }
+.f-field input, .f-field select, .f-field textarea { font-family: "Inter", sans-serif; font-size: 13px; color: #111111; background: #f8f8f5; border: 1.5px solid #e0e0d8; border-radius: 8px; padding: 0.6rem 0.8rem; outline: none; width: 100%; transition: border-color 0.2s, background 0.2s; }
+.f-field input::placeholder, .f-field textarea::placeholder { color: #aaaaaa; }
+.f-field input:focus, .f-field select:focus, .f-field textarea:focus { border-color: #00573F; background: #f0faf5; }
+.f-field select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23555'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 1.8rem; }
+.f-field select option { background: #fff; color: #111; }
 .f-field textarea { min-height: 72px; resize: vertical; }
-
 .f-row { display: grid; gap: 0.75rem; margin-bottom: 0; }
 .f-r2 { grid-template-columns: 1fr 1fr; }
 .f-r3 { grid-template-columns: 0.55fr 1fr 1fr; }
+.f-divider { border: none; border-top: 1.5px solid #f0f0e8; margin: 0.75rem 0 0.9rem; }
+.f-submit { width: 100%; margin-top: 1.2rem; font-family: "Inter", sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.85rem; background: #00573F; color: #ffffff; border: none; border-radius: 50px; cursor: pointer; transition: background 0.2s, transform 0.2s; }
+.f-submit:hover { background: #007a58; transform: translateY(-1px); }
+.f-note { text-align: center; margin-top: 0.75rem; font-size: 10px; color: #999999; line-height: 1.5; }
+.form-success { display: none; text-align: center; padding: 3rem 2rem; }
+.form-success .success-icon { width: 60px; height: 60px; border-radius: 50%; background: #e6f2ee; border: 2px solid #00573F; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1.2rem; }
+.form-success h4 { font-family: "Inter", sans-serif; font-size: 1.3rem; font-weight: 700; color: #111111; margin-bottom: 0.5rem; }
+.form-success p { font-size: 0.85rem; color: #555555; line-height: 1.7; }
 
-.f-divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 0.75rem 0 0.9rem; }
-
-.f-submit {
-  width: 100%; margin-top: 1.25rem;
-  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  padding: 0.8rem;
-  background: var(--gold); color: var(--black);
-  border: none; border-radius: 8px; cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-.f-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
-
-.f-note {
-  text-align: center; margin-top: 0.75rem;
-  font-size: 10px; color: rgba(244,240,232,0.25); line-height: 1.5;
-}
-
-/* Success state */
-.form-success {
-  display: none; text-align: center; padding: 3rem 2rem;
-}
-.form-success .success-icon {
-  width: 60px; height: 60px; border-radius: 50%;
-  background: rgba(30,92,58,0.3); border: 2px solid var(--green);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.8rem; margin: 0 auto 1.2rem;
-}
-.form-success h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem; color: var(--white); margin-bottom: 0.5rem;
-}
-.form-success p { font-size: 0.85rem; color: rgba(244,240,232,0.5); line-height: 1.7; }
-
-/* ── FOOTER ── */
-footer {
-  background: #050a07; padding: 4rem 5%;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-.footer-top { display: flex; justify-content: space-between; gap: 3rem; flex-wrap: wrap; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
-.footer-brand .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--white); display: block; margin-bottom: 0.8rem; }
-.footer-brand .logo span { color: var(--gold); }
-.footer-brand p { font-size: 0.82rem; color: rgba(244,240,232,0.35); line-height: 1.7; max-width: 260px; }
+/* FOOTER */
+footer { background: #111111; padding: 4rem 5%; }
+.footer-top { display: flex; justify-content: space-between; gap: 3rem; flex-wrap: wrap; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-brand .logo { font-family: "Inter", sans-serif; font-size: 1.2rem; font-weight: 800; color: #ffffff; display: block; margin-bottom: 0.8rem; letter-spacing: -0.02em; }
+.footer-brand .logo span { color: #4cd69a; }
+.footer-brand p { font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.7; max-width: 260px; }
 .footer-cols { display: flex; gap: 4rem; flex-wrap: wrap; }
-.footer-col h5 { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
-.footer-col-links { display: flex; flex-direction: column; gap: 0.65rem; }
-.footer-col-links a { font-size: 0.82rem; color: rgba(244,240,232,0.38); text-decoration: none; transition: color 0.2s; }
-.footer-col-links a:hover { color: var(--white); }
+.footer-col h5 { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #4cd69a; margin-bottom: 1.1rem; font-weight: 700; }
+.footer-col-links { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col-links a { font-size: 0.82rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-col-links a:hover { color: #ffffff; }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; flex-wrap: wrap; gap: 1rem; }
-.footer-copy { font-size: 0.72rem; color: rgba(244,240,232,0.2); }
-.footer-socials { display: flex; gap: 0.7rem; }
-.footer-socials a {
-  width: 34px; height: 34px; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.1);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.7rem; color: rgba(244,240,232,0.4); text-decoration: none;
-  transition: border-color 0.2s, color 0.2s;
-}
-.footer-socials a:hover { border-color: var(--gold); color: var(--gold); }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+.footer-socials { display: flex; gap: 0.6rem; }
+.footer-socials a { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.footer-socials a:hover { border-color: #4cd69a; color: #4cd69a; }
 
-@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
   .uni-grid { grid-template-columns: repeat(2, 1fr); }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -547,27 +452,33 @@ footer {
   .contact-perks { align-items: center; }
   .perk { max-width: 400px; }
   .contact-quote { max-width: 500px; margin: 0 auto; }
+  .poly-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
-  .hero-content { grid-template-columns: 1fr; padding-top: 8rem; }
+  .hero-content { grid-template-columns: 1fr; padding-bottom: 4rem; }
   .hero-right { display: none; }
+  .slide-content { grid-template-columns: 1fr; padding-bottom: 5rem; }
+  .slide-right { display: none; }
+  .slide-title { font-size: clamp(2rem, 7vw, 3rem); }
   .why-grid { grid-template-columns: 1fr; }
   .uni-grid { grid-template-columns: 1fr 1fr; }
   .services-grid { grid-template-columns: 1fr; }
-  .pathway-item { grid-template-columns: 60px 1fr; }
+  .pathway-item { grid-template-columns: 56px 1fr; }
   .pathway-duration { display: none; }
   .footer-top { flex-direction: column; }
-  nav { padding: 1rem 4%; }
+  nav { padding: 0 4%; }
   .f-r3 { grid-template-columns: 1fr 1fr; }
   .f-r3 .f-field:first-child { grid-column: 1 / -1; }
+  .poly-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
   .uni-grid { grid-template-columns: 1fr; }
   .hero-cards { grid-template-columns: 1fr; }
   .f-r2 { grid-template-columns: 1fr; }
   .form-body-inner { padding: 1.25rem 1.25rem 1.5rem; }
+  .poly-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -601,44 +512,180 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-slider" id="heroSlider">
+
+    <!-- SLIDE 1 — Why Study in NZ -->
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&q=80')">
+      <div class="slide-content">
+        <div class="slide-left">
+          <div class="slide-eyebrow">Aotearoa New Zealand</div>
+          <h1 class="slide-title">Shape your <em>future</em><br>at the edge<br>of the world</h1>
+          <p class="slide-desc">World-class universities, breathtaking landscapes, and a multicultural society that welcomes ambitious minds from every corner of the globe.</p>
+          <div class="slide-btns">
+            <a href="#why" class="btn-gold">Why Study in NZ</a>
+            <a href="#contact" class="btn-ghost">Free Consultation</a>
+          </div>
+        </div>
+        <div class="slide-right">
+          <div class="slide-stat-grid">
+            <div class="slide-stat wide">
+              <span class="slide-stat-num">#1</span>
+              <span class="slide-stat-label">Most peaceful English-speaking nation in the world — Global Peace Index 2024</span>
+            </div>
+            <div class="slide-stat">
+              <span class="slide-stat-num">8</span>
+              <span class="slide-stat-label">World-ranked universities across 2 islands</span>
+            </div>
+            <div class="slide-stat">
+              <span class="slide-stat-num">3 yr</span>
+              <span class="slide-stat-label">Post-study open work visa for all graduates</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 — Universities & Programmes -->
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1600&q=80')">
+      <div class="slide-content">
+        <div class="slide-left">
+          <div class="slide-eyebrow">World-Class Institutions</div>
+          <h1 class="slide-title">8 universities.<br><em>Endless</em><br>possibilities.</h1>
+          <p class="slide-desc">From engineering and medicine to design and agriculture — New Zealand universities offer globally recognised degrees that open doors worldwide. All ranked in the top 3% globally.</p>
+          <div class="slide-btns">
+            <a href="#universities" class="btn-gold">View Universities</a>
+            <a href="#pathways" class="btn-ghost">Study Pathways</a>
+          </div>
+        </div>
+        <div class="slide-right">
+          <div class="slide-stat-grid">
+            <div class="slide-stat wide">
+              <span class="slide-stat-num">Top 3%</span>
+              <span class="slide-stat-label">All NZ universities ranked in the world's top 3% — QS World Rankings 2024</span>
+            </div>
+            <div class="slide-stat">
+              <span class="slide-stat-num">500+</span>
+              <span class="slide-stat-label">Degree programmes across every discipline</span>
+            </div>
+            <div class="slide-stat">
+              <span class="slide-stat-num">16</span>
+              <span class="slide-stat-label">Polytechnics & institutes of technology</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 — Career & Residency -->
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1627556704302-624286467c65?w=1600&q=80')">
+      <div class="slide-content">
+        <div class="slide-left">
+          <div class="slide-eyebrow">Your Path to Residency</div>
+          <h1 class="slide-title">Study. Work.<br><em>Settle</em> in<br>New Zealand.</h1>
+          <p class="slide-desc">A degree from New Zealand is your gateway to permanent residency. With the Green List visa pathway, skilled graduates in high-demand fields can fast-track their journey to calling NZ home.</p>
+          <div class="slide-btns">
+            <a href="#pathways" class="btn-gold">Residency Pathways</a>
+            <a href="#contact" class="btn-ghost">Talk to an Advisor</a>
+          </div>
+        </div>
+        <div class="slide-right">
+          <div class="slide-stat-grid">
+            <div class="slide-stat wide">
+              <span class="slide-stat-num">100K+</span>
+              <span class="slide-stat-label">International students currently enrolled across New Zealand institutions</span>
+            </div>
+            <div class="slide-stat">
+              <span class="slide-stat-num">20 hrs</span>
+              <span class="slide-stat-label">Work allowed per week while studying</span>
+            </div>
+            <div class="slide-stat">
+              <span class="slide-stat-num">PR</span>
+              <span class="slide-stat-label">Pathway to permanent residency via Green List</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ARROWS -->
+  <button class="slider-arrow slider-prev" id="sliderPrev" aria-label="Previous slide">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="slider-arrow slider-next" id="sliderNext" aria-label="Next slide">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+
+  <!-- DOTS -->
+  <div class="slider-dots" id="sliderDots">
+    <button class="slider-dot active" data-index="0"></button>
+    <button class="slider-dot" data-index="1"></button>
+    <button class="slider-dot" data-index="2"></button>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="slider-progress" id="sliderProgress" style="width:0%"></div>
+
   <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="hero-eyebrow">Aotearoa New Zealand</div>
-      <h1>Shape your<br><em>future</em> at the<br>edge of the world</h1>
-      <p class="hero-desc">World-class universities, breathtaking landscapes, and a multicultural society that welcomes ambitious minds from every corner of the globe.</p>
-      <div class="hero-btns">
-        <a href="#why" class="btn-gold">Explore Options</a>
-        <a href="#contact" class="btn-ghost">Free Consultation</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-cards">
-        <div class="hero-stat-card">
-          <span class="stat-num">#1</span>
-          <span class="stat-label">Most peaceful English-speaking nation in the world (Global Peace Index)</span>
-        </div>
-        <div class="hero-stat-card">
-          <span class="stat-num">8</span>
-          <span class="stat-label">World-ranked universities across 2 islands</span>
-        </div>
-        <div class="hero-stat-card">
-          <span class="stat-num">3yr</span>
-          <span class="stat-label">Post-study open work visa for graduates</span>
-        </div>
-        <div class="hero-stat-card">
-          <span class="stat-num">100K+</span>
-          <span class="stat-label">International students enrolled annually</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <div class="scroll-arrow"></div>
-    Scroll
-  </div>
 </section>
+
+<script>
+(function() {
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots = document.querySelectorAll('.slider-dot');
+  var progress = document.getElementById('sliderProgress');
+  var current = 0;
+  var timer;
+  var DURATION = 6000;
+
+  function startProgress() {
+    if (!progress) return;
+    progress.style.transition = 'none';
+    progress.style.width = '0%';
+    setTimeout(function() {
+      progress.classList.add('animating');
+      progress.style.transition = 'width ' + DURATION + 'ms linear';
+      progress.style.width = '100%';
+    }, 30);
+  }
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    startProgress();
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startAuto() { timer = setInterval(next, DURATION); }
+  function resetAuto() { clearInterval(timer); startAuto(); }
+
+  document.getElementById('sliderNext').addEventListener('click', function(){ next(); resetAuto(); });
+  document.getElementById('sliderPrev').addEventListener('click', function(){ prev(); resetAuto(); });
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      goTo(parseInt(this.dataset.index)); resetAuto();
+    });
+  });
+
+  var touchStartX = 0;
+  var heroEl = document.querySelector('.hero');
+  heroEl.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; }, {passive:true});
+  heroEl.addEventListener('touchend', function(e){
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); resetAuto(); }
+  }, {passive:true});
+
+  startProgress();
+  startAuto();
+})();
+</script>
 
 <!-- WHY NZ -->
 <section class="why-nz" id="why">
@@ -689,55 +736,244 @@ footer {
     <p class="section-sub light">Every institution is government-funded, globally accredited, and committed to excellence in teaching and research.</p>
   </div>
   <div class="uni-grid">
-    <div class="uni-card reveal">
+    <a class="uni-card reveal" href="https://www.auckland.ac.nz" target="_blank" rel="noopener">
       <div class="uni-badge">🏆 QS #68 Globally</div>
       <div class="uni-name">University of Auckland</div>
       <div class="uni-city">📍 Auckland, North Island · Est. 1883</div>
       <div class="uni-tags"><span class="uni-tag">Engineering</span><span class="uni-tag">Medicine</span><span class="uni-tag">Law</span><span class="uni-tag">Business</span></div>
-    </div>
-    <div class="uni-card reveal">
+      <div class="uni-visit">Visit Website <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></div>
+    </a>
+    <a class="uni-card reveal" href="https://www.otago.ac.nz" target="_blank" rel="noopener">
       <div class="uni-badge">🏆 QS #167 Globally</div>
       <div class="uni-name">University of Otago</div>
       <div class="uni-city">📍 Dunedin, South Island · Est. 1869</div>
       <div class="uni-tags"><span class="uni-tag">Health Sciences</span><span class="uni-tag">Medicine</span><span class="uni-tag">Dentistry</span></div>
-    </div>
-    <div class="uni-card reveal">
+      <div class="uni-visit">Visit Website <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></div>
+    </a>
+    <a class="uni-card reveal" href="https://www.wgtn.ac.nz" target="_blank" rel="noopener">
       <div class="uni-badge">🏆 QS #176 Globally</div>
       <div class="uni-name">Victoria Univ. of Wellington</div>
       <div class="uni-city">📍 Wellington, North Island · Est. 1895</div>
       <div class="uni-tags"><span class="uni-tag">Law</span><span class="uni-tag">Policy</span><span class="uni-tag">Design</span></div>
-    </div>
-    <div class="uni-card reveal">
+      <div class="uni-visit">Visit Website <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></div>
+    </a>
+    <a class="uni-card reveal" href="https://www.aut.ac.nz" target="_blank" rel="noopener">
       <div class="uni-badge">🏆 QS #230 Globally</div>
       <div class="uni-name">AUT University</div>
       <div class="uni-city">📍 Auckland, North Island · Est. 2000</div>
       <div class="uni-tags"><span class="uni-tag">Technology</span><span class="uni-tag">Business</span><span class="uni-tag">Design</span></div>
-    </div>
-    <div class="uni-card reveal">
+      <div class="uni-visit">Visit Website <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></div>
+    </a>
+    <a class="uni-card reveal" href="https://www.canterbury.ac.nz" target="_blank" rel="noopener">
       <div class="uni-badge">🔬 QS #258 Globally</div>
       <div class="uni-name">University of Canterbury</div>
       <div class="uni-city">📍 Christchurch, South Island · Est. 1873</div>
       <div class="uni-tags"><span class="uni-tag">Engineering</span><span class="uni-tag">Science</span><span class="uni-tag">Computing</span></div>
-    </div>
-    <div class="uni-card reveal">
-      <div class="uni-badge">🌾 Agriculture & Aviation Leader</div>
+      <div class="uni-visit">Visit Website <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></div>
+    </a>
+    <a class="uni-card reveal" href="https://www.massey.ac.nz" target="_blank" rel="noopener">
+      <div class="uni-badge">🌾 Agriculture &amp; Aviation Leader</div>
       <div class="uni-name">Massey University</div>
       <div class="uni-city">📍 Palmerston North · Auckland · Est. 1927</div>
       <div class="uni-tags"><span class="uni-tag">Agriculture</span><span class="uni-tag">Aviation</span><span class="uni-tag">Veterinary</span></div>
-    </div>
-    <div class="uni-card reveal">
-      <div class="uni-badge">🌿 Innovation & Sustainability</div>
+      <div class="uni-visit">Visit Website <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></div>
+    </a>
+    <a class="uni-card reveal" href="https://www.waikato.ac.nz" target="_blank" rel="noopener">
+      <div class="uni-badge">🌿 Innovation &amp; Sustainability</div>
       <div class="uni-name">University of Waikato</div>
       <div class="uni-city">📍 Hamilton · Tauranga · Est. 1964</div>
       <div class="uni-tags"><span class="uni-tag">Management</span><span class="uni-tag">Māori Studies</span><span class="uni-tag">Law</span></div>
-    </div>
-    <div class="uni-card reveal">
+      <div class="uni-visit">Visit Website <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></div>
+    </a>
+    <a class="uni-card reveal" href="https://www.lincoln.ac.nz" target="_blank" rel="noopener">
       <div class="uni-badge">🌱 Top 50 for Agriculture Globally</div>
       <div class="uni-name">Lincoln University</div>
       <div class="uni-city">📍 Christchurch, South Island · Est. 1878</div>
       <div class="uni-tags"><span class="uni-tag">Agri-Science</span><span class="uni-tag">Wine Science</span><span class="uni-tag">Environment</span></div>
+      <div class="uni-visit">Visit Website <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></div>
+    </a>
+  </div>
+
+  <!-- Polytechnics & Colleges -->
+  <div class="poly-section reveal">
+    <hr class="poly-divider">
+    <h3 class="poly-section-title">Polytechnics &amp; <em>Colleges</em></h3>
+    <p class="poly-section-sub">16 government-funded institutes of technology &amp; leading private colleges across New Zealand</p>
+
+    <div class="poly-grid">
+      <!-- ITPs -->
+      <a class="poly-item" href="https://www.ara.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Ara Institute of Canterbury</div>
+          <div class="poly-loc">📍 Christchurch</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.eit.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Eastern Institute of Technology</div>
+          <div class="poly-loc">📍 Napier · Auckland · Gisborne</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.mit.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Manukau Institute of Technology</div>
+          <div class="poly-loc">📍 Auckland</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.nmit.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Nelson Marlborough Institute of Technology</div>
+          <div class="poly-loc">📍 Nelson</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.northtec.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">NorthTec (Tai Tokerau Wānanga)</div>
+          <div class="poly-loc">📍 Northland · Auckland</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.openpolytechnic.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Open Polytechnic of New Zealand</div>
+          <div class="poly-loc">📍 Wellington (Online)</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.op.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Otago Polytechnic</div>
+          <div class="poly-loc">📍 Dunedin</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.sit.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Southern Institute of Technology</div>
+          <div class="poly-loc">📍 Invercargill</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.taipoutini.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Tai Poutini Polytechnic</div>
+          <div class="poly-loc">📍 Greymouth</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.toiohomai.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Toi Ohomai Institute of Technology</div>
+          <div class="poly-loc">📍 Rotorua · Tauranga</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.ucol.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Universal College of Learning (UCOL)</div>
+          <div class="poly-loc">📍 Palmerston North · Whanganui</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.unitec.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Unitec Institute of Technology</div>
+          <div class="poly-loc">📍 Auckland</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.wintec.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Waikato Institute of Technology (Wintec)</div>
+          <div class="poly-loc">📍 Hamilton</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.witt.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Western Institute of Technology (WITT)</div>
+          <div class="poly-loc">📍 New Plymouth</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.whitireia.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Whitireia New Zealand</div>
+          <div class="poly-loc">📍 Wellington · Porirua</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <a class="poly-item" href="https://www.weltec.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot"></div>
+        <div class="poly-info">
+          <div class="poly-name">Wellington Institute of Technology (WelTec)</div>
+          <div class="poly-loc">📍 Wellington</div>
+        </div>
+        <span class="poly-tag">ITP</span>
+      </a>
+      <!-- Private Colleges -->
+      <a class="poly-item" href="https://www.ais.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot" style="background:#4cd69a;"></div>
+        <div class="poly-info">
+          <div class="poly-name">Auckland Institute of Studies</div>
+          <div class="poly-loc">📍 Auckland</div>
+        </div>
+        <span class="poly-tag" style="color:#004d38;border-color:#b0d4c8;background:#e6f2ee;">Private</span>
+      </a>
+      <a class="poly-item" href="https://www.yoobee.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot" style="background:#4cd69a;"></div>
+        <div class="poly-info">
+          <div class="poly-name">Yoobee Colleges</div>
+          <div class="poly-loc">📍 Auckland · Wellington · Christchurch</div>
+        </div>
+        <span class="poly-tag" style="color:#004d38;border-color:#b0d4c8;background:#e6f2ee;">Private</span>
+      </a>
+      <a class="poly-item" href="https://www.whitecliffe.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot" style="background:#4cd69a;"></div>
+        <div class="poly-info">
+          <div class="poly-name">Whitecliffe College of Arts &amp; Design</div>
+          <div class="poly-loc">📍 Auckland</div>
+        </div>
+        <span class="poly-tag" style="color:#004d38;border-color:#b0d4c8;background:#e6f2ee;">Private</span>
+      </a>
+      <a class="poly-item" href="https://www.carey.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot" style="background:#4cd69a;"></div>
+        <div class="poly-info">
+          <div class="poly-name">Carey Baptist College</div>
+          <div class="poly-loc">📍 Auckland</div>
+        </div>
+        <span class="poly-tag" style="color:#004d38;border-color:#b0d4c8;background:#e6f2ee;">Private</span>
+      </a>
+      <a class="poly-item" href="https://www.laidlaw.ac.nz" target="_blank" rel="noopener">
+        <div class="poly-dot" style="background:#4cd69a;"></div>
+        <div class="poly-info">
+          <div class="poly-name">Laidlaw College</div>
+          <div class="poly-loc">📍 Auckland · Christchurch</div>
+        </div>
+        <span class="poly-tag" style="color:#004d38;border-color:#b0d4c8;background:#e6f2ee;">Private</span>
+      </a>
     </div>
   </div>
+
 </section>
 
 <!-- PATHWAYS -->
@@ -1086,6 +1322,16 @@ footer {
     </div>
   </div>
 </footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/64272149960?text=Hello%21%20I%20found%20you%20on%20your%20website."
+   target="_blank"
+   id="whatsapp-float"
+   title="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="30" height="30" fill="white">
+    <path d="M16 2C8.28 2 2 8.28 2 16c0 2.48.67 4.8 1.84 6.8L2 30l7.42-1.82A13.93 13.93 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25.6a11.56 11.56 0 01-5.9-1.6l-.42-.26-4.4 1.08 1.1-4.28-.28-.44A11.6 11.6 0 1116 27.6zm6.36-8.68c-.35-.17-2.06-1.02-2.38-1.13-.32-.12-.56-.17-.8.17-.23.35-.9 1.13-1.1 1.36-.2.23-.4.26-.74.09-.35-.17-1.47-.54-2.8-1.73a10.5 10.5 0 01-1.94-2.42c-.2-.35-.02-.54.15-.71.16-.16.35-.4.52-.6.17-.2.23-.35.35-.58.12-.23.06-.44-.03-.61-.09-.17-.8-1.93-1.1-2.64-.28-.7-.58-.6-.8-.61h-.68c-.23 0-.61.09-.93.44-.32.35-1.22 1.19-1.22 2.9s1.25 3.36 1.42 3.6c.17.23 2.46 3.76 5.96 5.27.83.36 1.48.57 1.99.73.84.27 1.6.23 2.2.14.67-.1 2.06-.84 2.35-1.66.29-.81.29-1.51.2-1.66-.08-.14-.32-.23-.67-.4z"/>
+  </svg>
+</a>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

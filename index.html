@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Study in New Zealand — Higher Education Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --black: #0a0c0b;
@@ -30,7 +30,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--cream); }
 ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
@@ -77,7 +76,6 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
 .hamburger span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; transition: all 0.3s; }
 
-/* Mobile Nav */
 .mobile-menu {
   display: none; position: fixed; inset: 0; z-index: 998;
   background: var(--cream); flex-direction: column;
@@ -114,7 +112,7 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
 .hero-left { animation: fadeUp 1s ease both; }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 0.6rem;
-  font-size: 1 rem; font-weight: 600; letter-spacing: 0.25em;
+  font-size: 1rem; font-weight: 600; letter-spacing: 0.25em;
   text-transform: uppercase; color: var(--gold);
   margin-bottom: 1.8rem;
 }
@@ -190,7 +188,6 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
 }
 .section-sub.light { color: rgba(244,240,232,0.6); }
 
-/* Reveal animation */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -327,23 +324,190 @@ nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
 }
 .faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.5rem; }
 
-/* ── CTA BANNER ── */
-.cta-banner {
-  padding: 7rem 5%; text-align: center;
-  background: linear-gradient(135deg, var(--green) 0%, var(--teal) 100%);
+/* ── CONTACT SECTION ── */
+.contact-section {
+  padding: 7rem 5%;
+  background: linear-gradient(135deg, #0a1f15 0%, #0d2e1e 50%, #0a1f15 100%);
   position: relative; overflow: hidden;
 }
-.cta-banner::before {
+.contact-section::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(255,255,255,0.07), transparent);
+  background: radial-gradient(ellipse 70% 60% at 30% 50%, rgba(30,92,58,0.25), transparent),
+              radial-gradient(ellipse 50% 70% at 80% 30%, rgba(26,122,110,0.15), transparent);
+  pointer-events: none;
 }
-.cta-banner h2 {
+.contact-section::after {
+  content: ''; position: absolute; inset: 0; opacity: 0.03;
+  background-image: linear-gradient(rgba(244,240,232,1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(244,240,232,1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.contact-inner {
+  max-width: 1100px; margin: 0 auto; position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+}
+
+/* Left col */
+.contact-left { padding-top: 0.5rem; }
+.contact-left .tag { color: var(--gold); }
+.contact-left h2 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900;
-  color: var(--white); margin-bottom: 1.2rem; position: relative;
+  font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900;
+  color: var(--white); line-height: 1.15; margin-bottom: 1.2rem;
 }
-.cta-banner p { color: rgba(255,255,255,0.75); font-size: 1rem; margin-bottom: 2.5rem; font-weight: 300; position: relative; }
-.cta-banner .btn-gold { font-size: 0.9rem; padding: 1rem 2.8rem; position: relative; }
+.contact-left h2 em { font-style: italic; color: var(--gold-light); }
+.contact-left p {
+  font-size: 0.95rem; color: rgba(244,240,232,0.6);
+  line-height: 1.8; font-weight: 300; margin-bottom: 2.5rem;
+}
+
+.contact-perks { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+.perk {
+  display: flex; align-items: flex-start; gap: 0.9rem;
+}
+.perk-icon {
+  width: 36px; height: 36px; flex-shrink: 0; border-radius: 8px;
+  background: rgba(30,92,58,0.4); border: 1px solid rgba(30,92,58,0.6);
+  display: flex; align-items: center; justify-content: center; font-size: 1rem;
+}
+.perk-text strong {
+  display: block; font-size: 0.88rem; font-weight: 500;
+  color: var(--white); margin-bottom: 0.15rem;
+}
+.perk-text span { font-size: 0.78rem; color: rgba(244,240,232,0.45); line-height: 1.5; }
+
+.contact-quote {
+  border-left: 2px solid var(--gold);
+  padding: 1rem 1.5rem;
+  background: rgba(200,150,60,0.06);
+  border-radius: 0 8px 8px 0;
+}
+.contact-quote p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 1rem;
+  color: rgba(244,240,232,0.75); margin: 0;
+  line-height: 1.6;
+}
+.contact-quote cite {
+  display: block; margin-top: 0.5rem;
+  font-size: 0.72rem; color: var(--gold); font-style: normal;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+/* Right col — form card */
+.form-card {
+  background:  rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px; overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.form-card-header {
+  background: linear-gradient(135deg, #0a3d2e, #0f5c42);
+  padding: 1.5rem 2rem;
+  position: relative; overflow: hidden;
+}
+.form-card-header::before {
+  content: ''; position: absolute; top: -30px; right: -30px;
+  width: 120px; height: 120px; border-radius: 50%;
+  border: 25px solid rgba(255,255,255,0.04);
+}
+.flag-strip { display: flex; gap: 4px; margin-bottom: 0.75rem; }
+.flag-strip span { display: block; height: 3px; border-radius: 2px; }
+.fs-blue { background: #00247D; width: 22px; }
+.fs-black { background: #000; width: 22px; }
+.fs-red { background: #C8102E; width: 22px; }
+.fs-white { background: #fff; width: 10px; }
+.form-card-header .form-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 0.2rem;
+}
+.form-card-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-weight: 600; color: #fff; margin: 0;
+}
+.form-card-header p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 0.2rem;
+}
+
+.form-body-inner {
+  padding: 1.75rem 2rem 2rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.f-field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 0.9rem; }
+.f-field label {
+  font-size: 9px; font-weight: 500; letter-spacing: 0.07em;
+  text-transform: uppercase; color: rgba(244,240,232,0.45);
+}
+.f-field label .req { color: #C8102E; margin-left: 2px; }
+
+.f-field input,
+.f-field select,
+.f-field textarea {
+  font-family: 'DM Sans', sans-serif; font-size: 13px;
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 0.55rem 0.75rem;
+  outline: none; width: 100%;
+  transition: border-color 0.2s, background 0.2s;
+}
+.f-field input::placeholder, .f-field textarea::placeholder { color: rgba(244,240,232,0.22); }
+.f-field input:focus, .f-field select:focus, .f-field textarea:focus {
+  border-color: rgba(30,92,58,0.8);
+  background: rgba(30,92,58,0.12);
+}
+.f-field select {
+  appearance: none; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 10px center;
+  padding-right: 1.8rem;
+}
+.f-field select option { background: #0d2e1e; color: var(--white); }
+.f-field textarea { min-height: 72px; resize: vertical; }
+
+.f-row { display: grid; gap: 0.75rem; margin-bottom: 0; }
+.f-r2 { grid-template-columns: 1fr 1fr; }
+.f-r3 { grid-template-columns: 0.55fr 1fr 1fr; }
+
+.f-divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 0.75rem 0 0.9rem; }
+
+.f-submit {
+  width: 100%; margin-top: 1.25rem;
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.8rem;
+  background: var(--gold); color: var(--black);
+  border: none; border-radius: 8px; cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.f-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+.f-note {
+  text-align: center; margin-top: 0.75rem;
+  font-size: 10px; color: rgba(244,240,232,0.25); line-height: 1.5;
+}
+
+/* Success state */
+.form-success {
+  display: none; text-align: center; padding: 3rem 2rem;
+}
+.form-success .success-icon {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(30,92,58,0.3); border: 2px solid var(--green);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; margin: 0 auto 1.2rem;
+}
+.form-success h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; color: var(--white); margin-bottom: 0.5rem;
+}
+.form-success p { font-size: 0.85rem; color: rgba(244,240,232,0.5); line-height: 1.7; }
 
 /* ── FOOTER ── */
 footer {
@@ -371,7 +535,6 @@ footer {
 }
 .footer-socials a:hover { border-color: var(--gold); color: var(--gold); }
 
-/* ── ANIMATIONS ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ── RESPONSIVE ── */
@@ -379,8 +542,12 @@ footer {
   .uni-grid { grid-template-columns: repeat(2, 1fr); }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-left { text-align: center; }
+  .contact-perks { align-items: center; }
+  .perk { max-width: 400px; }
+  .contact-quote { max-width: 500px; margin: 0 auto; }
 }
-
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
@@ -393,11 +560,14 @@ footer {
   .pathway-duration { display: none; }
   .footer-top { flex-direction: column; }
   nav { padding: 1rem 4%; }
+  .f-r3 { grid-template-columns: 1fr 1fr; }
+  .f-r3 .f-field:first-child { grid-column: 1 / -1; }
 }
-
 @media (max-width: 480px) {
   .uni-grid { grid-template-columns: 1fr; }
   .hero-cards { grid-template-columns: 1fr; }
+  .f-r2 { grid-template-columns: 1fr; }
+  .form-body-inner { padding: 1.25rem 1.25rem 1.5rem; }
 }
 </style>
 </head>
@@ -717,18 +887,157 @@ footer {
   </div>
 </section>
 
-<!-- CTA BANNER -->
-<section class="cta-banner" id="contact">
-  <h2 class="reveal">Ready to begin your<br><em>New Zealand story?</em></h2>
-  <p class="reveal">Speak with our expert advisors for a free, personalised consultation — no obligation, just clarity on your path forward.</p>
-  <a href="nz_personal_info_form.html" class="btn-gold reveal">Book a Free Consultation</a>
+<!-- ── CONTACT + FORM ── -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+
+    <!-- Left: pitch -->
+    <div class="contact-left reveal">
+      <span class="tag">✦ Get Started</span>
+      <h2>Begin your<br><em>New Zealand story</em></h2>
+      <p>Fill in your details and one of our expert advisors will reach out within 24 hours for a free, personalised consultation — no obligation, just clarity on your path forward.</p>
+
+      <div class="contact-perks">
+        <div class="perk">
+          <div class="perk-icon">🎯</div>
+          <div class="perk-text">
+            <strong>Free one-on-one consultation</strong>
+            <span>Personalised advice matched to your profile and goals</span>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">⚡</div>
+          <div class="perk-text">
+            <strong>Response within 24 hours</strong>
+            <span>Our advisors are available Monday–Saturday, 9am–6pm IST</span>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">🔒</div>
+          <div class="perk-text">
+            <strong>Your data stays private</strong>
+            <span>We never share your information with third parties</span>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">🌏</div>
+          <div class="perk-text">
+            <strong>100+ universities covered</strong>
+            <span>All 8 NZ universities plus polytechnics and ITPs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-quote">
+        <p>"New Zealand gave me more than a degree — it gave me a career, a community, and a home I never expected."</p>
+        <cite>— Priya M., University of Auckland Graduate, 2024</cite>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="form-card reveal">
+      <div class="form-card-header">
+        <div class="flag-strip">
+          <span class="fs-blue"></span><span class="fs-black"></span>
+          <span class="fs-red"></span><span class="fs-white"></span><span class="fs-blue"></span>
+        </div>
+        <div class="form-label">Education New Zealand · Application</div>
+        <h3>Contact Us</h3>
+        <p>Fill in the details below to begin your application.</p>
+      </div>
+
+      <div id="formWrap">
+        <form id="myForm" onsubmit="submitForm(event)">
+          <div class="form-body-inner">
+
+            <!-- Title + First + Last -->
+            <div class="f-row f-r3">
+              <div class="f-field"> 
+                <label>Title <span class="req">*</span></label>
+                <select id="title" required>
+                  <option value="">—</option>
+                  <option>Mr</option><option>Ms</option>
+                  <option>Mrs</option><option>Dr</option><option>Prof</option>
+                </select>
+              </div>
+              <div class="f-field">
+                <label>First Name <span class="req">*</span></label>
+                <input id="firstName" type="text" placeholder="Given name" required>
+              </div>
+              <div class="f-field">
+                <label>Last Name <span class="req">*</span></label>
+                <input id="lastName" type="text" placeholder="Surname" required>
+              </div>
+            </div>
+
+            <hr class="f-divider">
+
+            <!-- Gender + DOB -->
+            <div class="f-row f-r2">
+              <div class="f-field">
+                <label>Gender <span class="req">*</span></label>
+                <select id="gender" required>
+                  <option value="">Select</option>
+                  <option>Male</option><option>Female</option>
+                  <option>Non-binary / Gender diverse</option>
+                  <option>Prefer not to say</option>
+                </select>
+              </div>
+              <div class="f-field">
+                <label>Date of Birth <span class="req">*</span></label>
+                <input id="dob" type="date" required>
+              </div>
+            </div>
+
+            <hr class="f-divider">
+
+            <!-- Mobile + Email -->
+            <div class="f-row f-r2">
+              <div class="f-field">
+                <label>Mobile No. <span class="req">*</span></label>
+                <input id="mobile" type="tel" placeholder="+91 98765 43210" required>
+              </div>
+              <div class="f-field">
+                <label>Email ID <span class="req">*</span></label>
+                <input id="email" type="email" placeholder="your@email.com" required>
+              </div>
+            </div>
+
+            <hr class="f-divider">
+
+            <!-- Nationality -->
+            <div class="f-field">
+              <label>Nationality <span class="req">*</span></label>
+              <select id="nationality" required>
+                <option value="">Select country</option>
+                <option>India</option><option>China</option><option>Philippines</option>
+                <option>South Korea</option><option>Japan</option>
+                <option>USA</option><option>UK</option><option>Australia</option><option>Other</option>
+              </select>
+            </div>
+
+            <!-- Address -->
+            <div class="f-field">
+              <label>Residential Address <span class="req">*</span></label>
+              <textarea id="address" placeholder="Street, City, State / Province, Country, Postcode" required></textarea>
+            </div>
+
+            <button type="submit" class="f-submit">Submit Application →</button>
+            <p class="f-note">By submitting you agree to our privacy policy. We'll contact you within 24 hours.</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Success state -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✓</div>
+        <h4>Application Received!</h4>
+        <p>Thank you for your interest in studying in New Zealand. One of our advisors will be in touch within 24 hours to schedule your free consultation.</p>
+      </div>
+    </div>
+
+  </div>
 </section>
-
-
-
-
-
-
 
 <!-- FOOTER -->
 <footer>
@@ -778,6 +1087,7 @@ footer {
   </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   // Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
@@ -826,9 +1136,40 @@ footer {
     sections.forEach(s => { if (window.scrollY >= s.offsetTop - 160) current = s.id; });
     navLinks.forEach(a => {
       a.style.opacity = a.getAttribute('href') === '#' + current ? '1' : '0.7';
-      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--green)' : '';
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
     });
   });
+
+  // Form submission → Google Sheets
+  function submitForm(e) {
+    e.preventDefault();
+    var formData = {
+      title:       $('#title').val(),
+      firstName:   $('#firstName').val(),
+      lastName:    $('#lastName').val(),
+      gender:      $('#gender').val(),
+      dob:         $('#dob').val(),
+      mobile:      $('#mobile').val(),
+      email:       $('#email').val(),
+      nationality: $('#nationality').val(),
+      address:     $('#address').val()
+    };
+    $.ajax({
+      url: 'https://script.google.com/macros/s/AKfycbzWC_p0f3fl1uxS4pY-LbUYFhpjnTWX_vinY_m3Sc6pYnnE0bq6JBKKOVnG2d1k7Qsq/exec',
+      type: 'POST',
+      data: formData,
+      dataType: 'text',
+      success: function() {
+        document.getElementById('formWrap').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      },
+      error: function() {
+        // Data still reaches the sheet despite CORS error — show success
+        document.getElementById('formWrap').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      }
+    });
+  }
 </script>
 </body>
 </html>

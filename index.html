@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Study in New Zealand — Higher Education Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --black: #111111;
@@ -389,39 +389,133 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
 .contact-quote { border-left: 3px solid #00573F; padding: 1rem 1.4rem; background: rgba(0,87,63,0.06); border-radius: 0 10px 10px 0; }
 .contact-quote p { font-family: "Inter", sans-serif; font-style: italic; font-size: 0.95rem; color: #222222; margin: 0; line-height: 1.6; }
 .contact-quote cite { display: block; margin-top: 0.5rem; font-size: 0.7rem; color: #00573F; font-style: normal; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
-.form-card { background: #ffffff; border: 1.5px solid #e0e0d8; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 32px rgba(0,87,63,0.1); }
-.form-card-header { background: #00573F; padding: 1.5rem 2rem; position: relative; overflow: hidden; }
-.form-card-header::before { content: ""; position: absolute; top: -30px; right: -30px; width: 110px; height: 110px; border-radius: 50%; border: 22px solid rgba(255,255,255,0.07); }
-.flag-strip { display: flex; gap: 4px; margin-bottom: 0.7rem; }
-.flag-strip span { display: block; height: 3px; border-radius: 2px; }
-.fs-blue { background: #00247D; width: 22px; }
-.fs-black { background: #000; width: 22px; }
-.fs-red { background: #C8102E; width: 22px; }
-.fs-white { background: #fff; width: 10px; }
-.form-card-header .form-label { font-family: "Inter", sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 0.2rem; }
-.form-card-header h3 { font-family: "Inter", sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin: 0; }
-.form-card-header p { font-family: "Inter", sans-serif; font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 0.2rem; }
-.form-body-inner { padding: 1.6rem 2rem 2rem; font-family: "Inter", sans-serif; }
-.f-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 0.9rem; }
-.f-field label { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #555555; }
-.f-field label .req { color: #cc0000; margin-left: 2px; }
-.f-field input, .f-field select, .f-field textarea { font-family: "Inter", sans-serif; font-size: 13px; color: #111111; background: #f8f8f5; border: 1.5px solid #e0e0d8; border-radius: 8px; padding: 0.6rem 0.8rem; outline: none; width: 100%; transition: border-color 0.2s, background 0.2s; }
-.f-field input::placeholder, .f-field textarea::placeholder { color: #aaaaaa; }
-.f-field input:focus, .f-field select:focus, .f-field textarea:focus { border-color: #00573F; background: #f0faf5; }
-.f-field select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23555'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 1.8rem; }
-.f-field select option { background: #fff; color: #111; }
-.f-field textarea { min-height: 72px; resize: vertical; }
-.f-row { display: grid; gap: 0.75rem; margin-bottom: 0; }
-.f-r2 { grid-template-columns: 1fr 1fr; }
-.f-r3 { grid-template-columns: 0.55fr 1fr 1fr; }
-.f-divider { border: none; border-top: 1.5px solid #f0f0e8; margin: 0.75rem 0 0.9rem; }
-.f-submit { width: 100%; margin-top: 1.2rem; font-family: "Inter", sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.85rem; background: #00573F; color: #ffffff; border: none; border-radius: 50px; cursor: pointer; transition: background 0.2s, transform 0.2s; }
-.f-submit:hover { background: #007a58; transform: translateY(-1px); }
-.f-note { text-align: center; margin-top: 0.75rem; font-size: 10px; color: #999999; line-height: 1.5; }
-.form-success { display: none; text-align: center; padding: 3rem 2rem; }
-.form-success .success-icon { width: 60px; height: 60px; border-radius: 50%; background: #e6f2ee; border: 2px solid #00573F; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1.2rem; }
-.form-success h4 { font-family: "Inter", sans-serif; font-size: 1.3rem; font-weight: 700; color: #111111; margin-bottom: 0.5rem; }
-.form-success p { font-size: 0.85rem; color: #555555; line-height: 1.7; }
+/* NEW COMPACT FORM CARD */
+.form-card {
+  background: #ffffff; border: 1.5px solid #e0e0d8;
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0,87,63,0.1);
+  font-family: 'DM Sans', sans-serif;
+}
+/* topbar */
+.nzf-topbar {
+  background: #00573F; border-bottom: 1px solid rgba(255,255,255,0.12);
+  padding: 16px 22px; display: flex; align-items: center; justify-content: space-between;
+}
+.nzf-topbar-left { display: flex; align-items: center; gap: 10px; }
+.nzf-logo-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #4cd69a;
+  animation: nzfBlink 2s ease-in-out infinite;
+}
+@keyframes nzfBlink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+.nzf-topbar h3 { font-size: 0.95rem; font-weight: 700; color: #ffffff; margin: 0; letter-spacing: -0.01em; }
+.nzf-topbar-badge {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #4cd69a; background: rgba(76,214,154,0.15);
+  border: 1px solid rgba(76,214,154,0.3); border-radius: 100px; padding: 4px 10px;
+}
+/* form body */
+.nzf-body { padding: 20px 22px 24px; }
+/* section labels */
+.nzf-sec {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  color: #00573F; margin-bottom: 10px; margin-top: 18px;
+  display: flex; align-items: center; gap: 10px;
+}
+.nzf-sec:first-child { margin-top: 0; }
+.nzf-sec::after { content: ''; flex: 1; height: 1px; background: #e0e0d8; }
+/* grids */
+.nzf-g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.nzf-g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.nzf-mb { margin-bottom: 10px; }
+/* field */
+.nzf-f { display: flex; flex-direction: column; gap: 5px; }
+.nzf-lbl {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #666666;
+}
+.nzf-lbl .req { color: #00573F; }
+.nzf-f input, .nzf-f select, .nzf-f textarea {
+  font-family: 'DM Sans', sans-serif; font-size: 13px; color: #111111;
+  background: #f8f8f5; border: 1.5px solid #e0e0d8; border-radius: 7px;
+  padding: 9px 11px; width: 100%; outline: none; appearance: none;
+  transition: border-color 0.18s, background 0.18s;
+}
+.nzf-f input::placeholder, .nzf-f textarea::placeholder { color: #bbbbaa; }
+.nzf-f input:focus, .nzf-f select:focus, .nzf-f textarea:focus {
+  border-color: #00573F; background: #f0faf5;
+}
+.nzf-f select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23555' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 10px center;
+  padding-right: 28px; cursor: pointer;
+}
+.nzf-f select option { background: #fff; color: #111; }
+.nzf-f textarea { resize: none; height: 72px; line-height: 1.55; }
+/* phone layout */
+.nzf-ph { display: grid; grid-template-columns: 108px 1fr; gap: 7px; }
+.nzf-ph select { font-size: 12px; padding-right: 22px; }
+/* interest tiles */
+.nzf-tiles { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; }
+.nzf-tile {
+  display: flex; align-items: center; gap: 7px; padding: 8px 10px;
+  background: #f8f8f5; border: 1.5px solid #e0e0d8; border-radius: 7px;
+  cursor: pointer; transition: border-color 0.15s, background 0.15s; user-select: none;
+}
+.nzf-tile:has(input:checked) { border-color: #00573F; background: #e6f2ee; }
+.nzf-tile input[type="checkbox"] {
+  width: 13px; height: 13px; accent-color: #00573F;
+  flex-shrink: 0; margin: 0; padding: 0; cursor: pointer;
+}
+.nzf-tile span { font-size: 12px; color: #333333; line-height: 1.3; }
+/* consent */
+.nzf-consent {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: #f5f5f0; border: 1.5px solid #e0e0d8;
+  border-radius: 8px; padding: 11px 13px; margin-top: 16px;
+}
+.nzf-consent input[type="checkbox"] {
+  width: 14px; height: 14px; accent-color: #00573F;
+  margin-top: 2px; flex-shrink: 0; cursor: pointer;
+}
+.nzf-consent p { font-size: 11.5px; color: #777777; line-height: 1.6; }
+/* footer bar */
+.nzf-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 22px; border-top: 1.5px solid #e0e0d8;
+  background: #f8f8f5; flex-wrap: wrap; gap: 10px;
+}
+.nzf-resp {
+  font-size: 11.5px; color: #888888;
+  display: flex; align-items: center; gap: 6px;
+}
+.nzf-resp-dot { width: 6px; height: 6px; border-radius: 50%; background: #f0a500; flex-shrink: 0; }
+.nzf-btn {
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
+  letter-spacing: 0.03em; color: #ffffff; background: #00573F;
+  border: none; border-radius: 100px; padding: 11px 26px; cursor: pointer;
+  display: flex; align-items: center; gap: 8px;
+  transition: background 0.2s, transform 0.18s;
+}
+.nzf-btn:hover { background: #007a58; transform: translateY(-1px); }
+.nzf-btn svg { transition: transform 0.18s; }
+.nzf-btn:hover svg { transform: translateX(3px); }
+/* success */
+.nzf-success {
+  display: none; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center; padding: 52px 32px;
+}
+.nzf-success.show { display: flex; }
+.nzf-tick {
+  width: 60px; height: 60px; border-radius: 50%; background: #00573F;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+  animation: nzfPop 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;
+}
+@keyframes nzfPop { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+.nzf-success h4 { font-family: 'Inter', sans-serif; font-size: 1.3rem; font-weight: 700; color: #111111; margin-bottom: 8px; }
+.nzf-success p { font-size: 13.5px; color: #666666; max-width: 320px; line-height: 1.7; }
+@media (max-width: 520px) {
+  .nzf-g2, .nzf-g3 { grid-template-columns: 1fr; }
+  .nzf-tiles { grid-template-columns: 1fr 1fr; }
+}
 
 /* FOOTER */
 footer { background: #111111; padding: 4rem 5%; }
@@ -1170,106 +1264,206 @@ footer { background: #111111; padding: 4rem 5%; }
       </div>
     </div>
 
-    <!-- Right: form -->
+    <!-- Right: new compact form -->
     <div class="form-card reveal">
-      <div class="form-card-header">
-        <div class="flag-strip">
-          <span class="fs-blue"></span><span class="fs-black"></span>
-          <span class="fs-red"></span><span class="fs-white"></span><span class="fs-blue"></span>
+
+      <!-- Top bar -->
+      <div class="nzf-topbar">
+        <div class="nzf-topbar-left">
+          <div class="nzf-logo-dot"></div>
+          <h3>Study in New Zealand</h3>
         </div>
-        <div class="form-label">Education New Zealand · Application</div>
-        <h3>Contact Us</h3>
-        <p>Fill in the details below to begin your application.</p>
+        <div class="nzf-topbar-badge">🥝 Free Counselling</div>
       </div>
 
+      <!-- Form wrap -->
       <div id="formWrap">
-        <form id="myForm" onsubmit="submitForm(event)">
-          <div class="form-body-inner">
+        <div class="nzf-body">
 
-            <!-- Title + First + Last -->
-            <div class="f-row f-r3">
-              <div class="f-field"> 
-                <label>Title <span class="req">*</span></label>
-                <select id="title" required>
-                  <option value="">—</option>
-                  <option>Mr</option><option>Ms</option>
-                  <option>Mrs</option><option>Dr</option><option>Prof</option>
+          <!-- Personal -->
+          <div class="nzf-sec">Personal</div>
+          <div class="nzf-g2 nzf-mb">
+            <div class="nzf-f">
+              <label class="nzf-lbl">First Name <span class="req">*</span></label>
+              <input id="firstName" type="text" placeholder="Priya" required>
+            </div>
+            <div class="nzf-f">
+              <label class="nzf-lbl">Last Name <span class="req">*</span></label>
+              <input id="lastName" type="text" placeholder="Sharma" required>
+            </div>
+          </div>
+          <div class="nzf-g2 nzf-mb">
+            <div class="nzf-f">
+              <label class="nzf-lbl">Email <span class="req">*</span></label>
+              <input id="email" type="email" placeholder="you@example.com" required>
+            </div>
+            <div class="nzf-f">
+              <label class="nzf-lbl">Phone <span class="req">*</span></label>
+              <div class="nzf-ph">
+                <select id="phoneCode">
+                  <option value="+91" selected>🇮🇳 +91</option>
+                  <option value="+93">🇦🇫 +93</option><option value="+355">🇦🇱 +355</option>
+                  <option value="+213">🇩🇿 +213</option><option value="+54">🇦🇷 +54</option>
+                  <option value="+61">🇦🇺 +61</option><option value="+43">🇦🇹 +43</option>
+                  <option value="+880">🇧🇩 +880</option><option value="+32">🇧🇪 +32</option>
+                  <option value="+55">🇧🇷 +55</option><option value="+1">🇨🇦 +1</option>
+                  <option value="+86">🇨🇳 +86</option><option value="+57">🇨🇴 +57</option>
+                  <option value="+20">🇪🇬 +20</option><option value="+251">🇪🇹 +251</option>
+                  <option value="+33">🇫🇷 +33</option><option value="+49">🇩🇪 +49</option>
+                  <option value="+233">🇬🇭 +233</option><option value="+30">🇬🇷 +30</option>
+                  <option value="+36">🇭🇺 +36</option><option value="+62">🇮🇩 +62</option>
+                  <option value="+98">🇮🇷 +98</option><option value="+353">🇮🇪 +353</option>
+                  <option value="+972">🇮🇱 +972</option><option value="+39">🇮🇹 +39</option>
+                  <option value="+81">🇯🇵 +81</option><option value="+962">🇯🇴 +962</option>
+                  <option value="+254">🇰🇪 +254</option><option value="+60">🇲🇾 +60</option>
+                  <option value="+52">🇲🇽 +52</option><option value="+212">🇲🇦 +212</option>
+                  <option value="+31">🇳🇱 +31</option><option value="+64">🇳🇿 +64</option>
+                  <option value="+234">🇳🇬 +234</option><option value="+47">🇳🇴 +47</option>
+                  <option value="+92">🇵🇰 +92</option><option value="+63">🇵🇭 +63</option>
+                  <option value="+48">🇵🇱 +48</option><option value="+351">🇵🇹 +351</option>
+                  <option value="+974">🇶🇦 +974</option><option value="+40">🇷🇴 +40</option>
+                  <option value="+7">🇷🇺 +7</option><option value="+966">🇸🇦 +966</option>
+                  <option value="+65">🇸🇬 +65</option><option value="+27">🇿🇦 +27</option>
+                  <option value="+82">🇰🇷 +82</option><option value="+34">🇪🇸 +34</option>
+                  <option value="+94">🇱🇰 +94</option><option value="+46">🇸🇪 +46</option>
+                  <option value="+41">🇨🇭 +41</option><option value="+886">🇹🇼 +886</option>
+                  <option value="+66">🇹🇭 +66</option><option value="+90">🇹🇷 +90</option>
+                  <option value="+971">🇦🇪 +971</option><option value="+44">🇬🇧 +44</option>
+                  <option value="+1">🇺🇸 +1</option><option value="+84">🇻🇳 +84</option>
+                  <option value="+260">🇿🇲 +260</option><option value="+263">🇿🇼 +263</option>
                 </select>
-              </div>
-              <div class="f-field">
-                <label>First Name <span class="req">*</span></label>
-                <input id="firstName" type="text" placeholder="Given name" required>
-              </div>
-              <div class="f-field">
-                <label>Last Name <span class="req">*</span></label>
-                <input id="lastName" type="text" placeholder="Surname" required>
+                <input id="mobile" type="tel" placeholder="98765 43210" required>
               </div>
             </div>
+          </div>
+          <div class="nzf-f nzf-mb">
+            <label class="nzf-lbl">Country of Residence <span class="req">*</span></label>
+            <select id="nationality" required>
+              <option value="India" selected>🇮🇳 India</option>
+              <option value="">── All Countries ──</option>
+              <option>Afghanistan</option><option>Albania</option><option>Algeria</option>
+              <option>Argentina</option><option>Armenia</option><option>Australia</option>
+              <option>Austria</option><option>Azerbaijan</option><option>Bahrain</option>
+              <option>Bangladesh</option><option>Belgium</option><option>Bolivia</option>
+              <option>Brazil</option><option>Canada</option><option>Chile</option>
+              <option>China</option><option>Colombia</option><option>Croatia</option>
+              <option>Czech Republic</option><option>Denmark</option><option>Egypt</option>
+              <option>Ethiopia</option><option>Finland</option><option>France</option>
+              <option>Germany</option><option>Ghana</option><option>Greece</option>
+              <option>Hungary</option><option>Indonesia</option><option>Iran</option>
+              <option>Ireland</option><option>Israel</option><option>Italy</option>
+              <option>Japan</option><option>Jordan</option><option>Kenya</option>
+              <option>Malaysia</option><option>Mexico</option><option>Morocco</option>
+              <option>Nepal</option><option>Netherlands</option><option>New Zealand</option>
+              <option>Nigeria</option><option>Norway</option><option>Pakistan</option>
+              <option>Philippines</option><option>Poland</option><option>Portugal</option>
+              <option>Qatar</option><option>Romania</option><option>Russia</option>
+              <option>Saudi Arabia</option><option>Singapore</option><option>South Africa</option>
+              <option>South Korea</option><option>Spain</option><option>Sri Lanka</option>
+              <option>Sweden</option><option>Switzerland</option><option>Taiwan</option>
+              <option>Thailand</option><option>Turkey</option><option>United Arab Emirates</option>
+              <option>United Kingdom</option><option>United States</option><option>Vietnam</option>
+              <option>Zimbabwe</option>
+            </select>
+          </div>
 
-            <hr class="f-divider">
-
-            <!-- Gender + DOB -->
-            <div class="f-row f-r2">
-              <div class="f-field">
-                <label>Gender <span class="req">*</span></label>
-                <select id="gender" required>
-                  <option value="">Select</option>
-                  <option>Male</option><option>Female</option>
-                  <option>Non-binary / Gender diverse</option>
-                  <option>Prefer not to say</option>
-                </select>
-              </div>
-              <div class="f-field">
-                <label>Date of Birth <span class="req">*</span></label>
-                <input id="dob" type="date" required>
-              </div>
-            </div>
-
-            <hr class="f-divider">
-
-            <!-- Mobile + Email -->
-            <div class="f-row f-r2">
-              <div class="f-field">
-                <label>Mobile No. <span class="req">*</span></label>
-                <input id="mobile" type="tel" placeholder="+91 98765 43210" required>
-              </div>
-              <div class="f-field">
-                <label>Email ID <span class="req">*</span></label>
-                <input id="email" type="email" placeholder="your@email.com" required>
-              </div>
-            </div>
-
-            <hr class="f-divider">
-
-            <!-- Nationality -->
-            <div class="f-field">
-              <label>Nationality <span class="req">*</span></label>
-              <select id="nationality" required>
-                <option value="">Select country</option>
-                <option>India</option><option>China</option><option>Philippines</option>
-                <option>South Korea</option><option>Japan</option>
-                <option>USA</option><option>UK</option><option>Australia</option><option>Other</option>
+          <!-- Academic -->
+          <div class="nzf-sec">Academic</div>
+          <div class="nzf-g3 nzf-mb">
+            <div class="nzf-f">
+              <label class="nzf-lbl">Highest Qualification <span class="req">*</span></label>
+              <select id="qualification" required>
+                <option value="">Select</option>
+                <option>Grade 12</option><option>Diploma</option>
+                <option>Bachelor's</option><option>PG Diploma</option>
+                <option>Master's</option><option>PhD</option>
               </select>
             </div>
-
-            <!-- Address -->
-            <div class="f-field">
-              <label>Residential Address <span class="req">*</span></label>
-              <textarea id="address" placeholder="Street, City, State / Province, Country, Postcode" required></textarea>
+            <div class="nzf-f">
+              <label class="nzf-lbl">Grad Year</label>
+              <select id="gradYear">
+                <option value="">Year</option>
+                <option>2025</option><option>2024</option><option>2023</option>
+                <option>2022</option><option>2021</option><option>2020</option>
+                <option>Earlier</option><option>Not yet</option>
+              </select>
             </div>
-
-            <button type="submit" class="f-submit">Submit Application →</button>
-            <p class="f-note">By submitting you agree to our privacy policy. We'll contact you within 24 hours.</p>
+            <div class="nzf-f">
+              <label class="nzf-lbl">English Test</label>
+              <select id="englishTest">
+                <option value="">Select / N/A</option>
+                <option>IELTS Academic</option><option>IELTS General</option>
+                <option>TOEFL iBT</option><option>PTE Academic</option>
+                <option>First language</option><option>Not taken</option>
+              </select>
+            </div>
           </div>
-        </form>
-      </div>
+
+          <!-- Preferences -->
+          <div class="nzf-sec">Preferences</div>
+          <div class="nzf-g2 nzf-mb">
+            <div class="nzf-f">
+              <label class="nzf-lbl">Study Level <span class="req">*</span></label>
+              <select id="studyLevel" required>
+                <option value="">Select</option>
+                <option>Foundation / Pathway</option>
+                <option>Undergraduate</option>
+                <option>PG Certificate / Diploma</option>
+                <option>Master's</option>
+                <option>MBA</option>
+                <option>PhD / Research</option>
+              </select>
+            </div>
+            <div class="nzf-f">
+              <label class="nzf-lbl">Planned Intake</label>
+              <select id="intake">
+                <option value="">Select</option>
+                <option>February 2026</option><option>July 2026</option>
+                <option>November 2026</option><option>2027+</option>
+                <option>Not decided</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="nzf-f nzf-mb">
+            <label class="nzf-lbl">Message</label>
+            <textarea id="message" placeholder="Any specific universities, programmes, visa or scholarship questions…"></textarea>
+          </div>
+
+          <!-- Consent -->
+          <div class="nzf-consent">
+            <input type="checkbox" id="consent">
+            <p>I agree to be contacted by a counsellor via email or phone about my study abroad enquiry.</p>
+          </div>
+
+        </div><!-- /nzf-body -->
+
+        <!-- Footer bar -->
+        <div class="nzf-footer">
+          <div class="nzf-resp">
+            <div class="nzf-resp-dot"></div>
+            Response within 1 working day
+          </div>
+          <button class="nzf-btn" onclick="submitForm(event)">
+            Send Enquiry
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div><!-- /formWrap -->
 
       <!-- Success state -->
-      <div class="form-success" id="formSuccess">
-        <div class="success-icon">✓</div>
-        <h4>Application Received!</h4>
-        <p>Thank you for your interest in studying in New Zealand. One of our advisors will be in touch within 24 hours to schedule your free consultation.</p>
+      <div class="nzf-success" id="formSuccess">
+        <div class="nzf-tick">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M6 14l6 6 10-10" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h4>Enquiry Received!</h4>
+        <p>A dedicated counsellor will reach out within <strong style="color:#00573F">one working day</strong> with personalised guidance for your NZ journey.</p>
       </div>
+
     </div>
 
   </div>
@@ -1389,17 +1583,42 @@ footer { background: #111111; padding: 4rem 5%; }
   // Form submission → Google Sheets
   function submitForm(e) {
     e.preventDefault();
+
+    // Consent check
+    var consent = document.getElementById('consent');
+    if (!consent.checked) {
+      consent.closest('.nzf-consent').style.borderColor = '#cc0000';
+      setTimeout(() => consent.closest('.nzf-consent').style.borderColor = '#e0e0d8', 2000);
+      return;
+    }
+
+    // Basic required field check
+    var required = ['firstName','lastName','email','mobile','nationality','qualification','studyLevel'];
+    var missing = required.filter(id => !document.getElementById(id).value.trim());
+    if (missing.length) {
+      missing.forEach(id => {
+        var el = document.getElementById(id);
+        el.style.borderColor = '#cc0000';
+        setTimeout(() => el.style.borderColor = '#e0e0d8', 2000);
+      });
+      return;
+    }
+
     var formData = {
-      title:       $('#title').val(),
-      firstName:   $('#firstName').val(),
-      lastName:    $('#lastName').val(),
-      gender:      $('#gender').val(),
-      dob:         $('#dob').val(),
-      mobile:      $('#mobile').val(),
-      email:       $('#email').val(),
-      nationality: $('#nationality').val(),
-      address:     $('#address').val()
+      firstName:     $('#firstName').val(),
+      lastName:      $('#lastName').val(),
+      email:         $('#email').val(),
+      phoneCode:     $('#phoneCode').val(),
+      mobile:        $('#mobile').val(),
+      nationality:   $('#nationality').val(),
+      qualification: $('#qualification').val(),
+      gradYear:      $('#gradYear').val(),
+      englishTest:   $('#englishTest').val(),
+      studyLevel:    $('#studyLevel').val(),
+      intake:        $('#intake').val(),
+      message:       $('#message').val()
     };
+
     $.ajax({
       url: 'https://script.google.com/macros/s/AKfycbzWC_p0f3fl1uxS4pY-LbUYFhpjnTWX_vinY_m3Sc6pYnnE0bq6JBKKOVnG2d1k7Qsq/exec',
       type: 'POST',
@@ -1407,12 +1626,12 @@ footer { background: #111111; padding: 4rem 5%; }
       dataType: 'text',
       success: function() {
         document.getElementById('formWrap').style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
+        document.getElementById('formSuccess').classList.add('show');
       },
       error: function() {
         // Data still reaches the sheet despite CORS error — show success
         document.getElementById('formWrap').style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
+        document.getElementById('formSuccess').classList.add('show');
       }
     });
   }
